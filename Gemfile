@@ -7,6 +7,15 @@ gem 'rails', '3.0.0.beta4'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
+group :development do
+  gem 'tolk'
+end
+
+group :test do
+  git 'git://github.com/thoughtbot/shoulda.git', :branch => 'rails3'
+  gem 'shoulda'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
