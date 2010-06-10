@@ -49,17 +49,15 @@ class Test::Unit::TestCase
     end
   end
 
-# TODO: add Group model and fix this stuff
-# TODO: looks like Group... must be changed to Acl.
-#  def self.should_not_update_if_url_branch_vendor_is_empty
-#    should "not update if url and/or branch and/or vendor is empty" do
-#      Acl.delete_all
-#      Acl.create(:package => 'glibc', :login => 'ldv', :vendor => 'ALT Linux', :branch => 'Sisyphus')
-#      Acl.create(:package => 'glibc', :login => 'kas', :vendor => 'ALT Linux', :branch => 'Sisyphus')
-#      Group.update_from_gitalt('', '', '')
-#      assert_equal(Acl.count(:all), 2)
-#    end
-#  end
+  def self.should_not_update_if_url_branch_vendor_is_empty
+    should "not update if url and/or branch and/or vendor is empty" do
+      Acl.delete_all
+      Acl.create(:package => 'glibc', :login => 'ldv', :vendor => 'ALT Linux', :branch => 'Sisyphus')
+      Acl.create(:package => 'glibc', :login => 'kas', :vendor => 'ALT Linux', :branch => 'Sisyphus')
+      Acl.update_from_gitalt('', '', '')
+      assert_equal(Acl.count(:all), 2)
+    end
+  end
 
   def self.should_not_add_twice
     should "not add twice data to database" do
@@ -98,7 +96,7 @@ class AclTest < ActiveSupport::TestCase
   should_not_update_if_url_is_empty
   should_not_update_if_branch_is_empty
   should_not_update_if_vendor_is_empty
-#  should_not_update_if_url_branch_vendor_is_empty
+  should_not_update_if_url_branch_vendor_is_empty
   should_not_add_twice
   should_fail_on_int
   should_check_acl_for_exists_and_not_add_twice
