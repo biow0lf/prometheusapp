@@ -91,6 +91,7 @@ end
 
 class AclTest < ActiveSupport::TestCase
   should_validate_presence_of :package, :login, :branch, :vendor
+  should_have_db_index :package, :login, :branch, :vendor
   should_have_15879_acls
   should_not_update_if_acl_file_empty
   should_not_update_if_url_is_empty
