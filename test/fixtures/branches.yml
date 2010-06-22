@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  distribution: MyString
+  vendor: MyString
+  order_id: 1
+
+two:
+  distribution: MyString
+  vendor: MyString
+  order_id: 1
