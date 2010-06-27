@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>Prometheusapp</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag 'altlinux' %>
+  <%= javascript_include_tag 'rails' %>
   <%= csrf_meta_tag %>
+
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta name="description" content="ALT Linux Team - Sisyphus packages info" />
+
 </head>
 <body>
 
 <%= yield %>
+
+</div>
+<div id="bottom">
+  &copy;&nbsp;2009&ndash;2010&nbsp;<a href="mailto:igor.zubkov@gmail.com" class="news">Igor Zubkov</a>
+</div>
+
+<%= render :partial => "shared/ga" %>
+
+<%= render :partial => "shared/ym" %>
 
 </body>
 </html>
