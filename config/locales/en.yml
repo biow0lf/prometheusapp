@@ -3,6 +3,52 @@
 
 en:
   hello: "Hello world"
+
+  default_title: "Prometheus 2.0"
+  top_header: "Sisyphus repository"
+  find: "find"
+  last_update: "Last update:"
+  srpms: "SRPMs:"
+
+  home: "Home"
+  home_title: "site home page"
+
+  news: "News"
+  news_title: "site news"
+
+  about: "About"
+  about_title: "about Prometheus project"
+
+  packages: "Packages"
+  packages_title: "packages information"
+
+  maintainers: "Maintainers"
+  maintainers_title: "maintainers information"
+
+  security: "Security"
+  security_title: "security fixes"
+
+  rss: "RSS"
+  rss_title: "RSS"
+
+  wiki: "Wiki"
+  wiki_url: "http://en.altlinux.org/Sisyphus"
+  wiki_title: "sisyphus public site"
+
+  mailing_list: "Mailing list"
+  mailing_list_url: "http://lists.altlinux.org/mailman/listinfo/community-en/"
+  mailing_list_title: "community-en@"
+
+  blog: "Blog"
+  blog_url: "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
+  blog_title: "blog"
+
+  planet: "Planet"
+  planet_url: "http://planet.altlinux.org/"
+  planet_title: "ALT Linux Planet"
+
+  app:
+
   pages:
     project:
       title: "Prometheus 2.0 - Information about the project"
