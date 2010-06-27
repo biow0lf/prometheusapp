@@ -1,4 +1,6 @@
 Prometheusapp::Application.routes.draw do |map|
+  get "home/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -8,6 +10,7 @@ Prometheusapp::Application.routes.draw do |map|
 
   # /api/v1/
 
+  root :to => 'home#index'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
