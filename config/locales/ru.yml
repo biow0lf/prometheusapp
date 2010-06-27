@@ -1,5 +1,24 @@
 --- 
 ru: 
+  about: "О проекте"
+  about_title: "проект Prometheus"
+  blog: Блог
+  blog_title: "блог о sisyphus"
+  blog_url: "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
+  default_title: "Prometheus 2.0"
+  find: искать
+  home: Главная
+  home_title: "главная страница сайта"
+  last_update: "Последнее обновление:"
+  mailing_list: Рассылка
+  mailing_list_title: sisyphus@
+  mailing_list_url: "http://lists.altlinux.org/mailman/listinfo/sisyphus/"
+  maintainers: Маинтейнеры
+  maintainers_title: "информация о маинтейнерах"
+  news: Новости
+  news_title: "новости сайта"
+  packages: Пакеты
+  packages_title: "информация о пакетах"
   pages: 
     project: 
       header: "Проект Prometheus"
@@ -35,3 +54,15 @@ ru:
           для любого другого непротиворечивого среза пакетов (и не только Sisyphus). Или локально, внутри какой-либо
           группы разработчиков, или вообще одному для собственных изысканий.
       title: "Prometheus 2.0 - Информация о проекте"
+  planet: Планета
+  planet_title: "ALT Linux Planet"
+  planet_url: "http://planet.altlinux.org/"
+  rss: RSS
+  rss_title: RSS
+  security: Безопасность
+  security_title: "исправления уязвимостей"
+  srpms: "Пакетов:"
+  top_header: "Репозиторий Sisyphus"
+  wiki: Wiki
+  wiki_title: "общественный сайт sisyphus"
+  wiki_url: "http://www.altlinux.org/Sisyphus"
