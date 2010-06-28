@@ -10,6 +10,10 @@ Prometheusapp::Application.routes.draw do |map|
 
   # /api/v1/
 
+  # legacy links
+  match '/news', :to => redirect("http://blog.prometheus...")
+  match '/project', :to => redirect("/pages/project")
+
   root :to => 'home#index'
 
   # Sample of regular route:
