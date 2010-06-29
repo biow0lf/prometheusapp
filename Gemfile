@@ -16,7 +16,6 @@ group :development do
 end
 
 group :test do
-  git 'git://github.com/thoughtbot/shoulda.git', :branch => 'rails3'
   gem 'shoulda'
 end
 
