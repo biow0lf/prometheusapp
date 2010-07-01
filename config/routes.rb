@@ -1,3 +1,5 @@
+SUPPORTED_LOCALES = /(en|ru|uk)/
+
 Prometheusapp::Application.routes.draw do |map|
   get "home/index"
 
@@ -12,7 +14,14 @@ Prometheusapp::Application.routes.draw do |map|
 
   # legacy links
   match '/news', :to => redirect("http://blog.prometheus...")
-  match '/project', :to => redirect("/pages/project")
+
+  match '(/:locale)/project', :to => redirect {|params| if params[:locale].nil? then "/pages/project" else "/#{params[:locale]}/pages/project" end }, :constraints => { :locale => SUPPORTED_LOCALES }
+
+  scope '/:locale' do
+    resources :pages, :controller => 'high_voltage/pages', :only => [:show], :constraints => { :locale => SUPPORTED_LOCALES }
+  end
+
+  match '(/:locale)', :to => 'home#index', :constraints => { :locale => SUPPORTED_LOCALES }
 
   root :to => 'home#index'
 
