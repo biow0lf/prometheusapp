@@ -1,2 +1,9 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="header"><%= t('main.header') %></div>
+<p style="text-align:justify">
+<span class="news-text">
+<%= t('main.text').html_safe %>
+</span>
+</p>
+<p class="break" />
+
+<%= render :partial => 'shared/fix' %>
