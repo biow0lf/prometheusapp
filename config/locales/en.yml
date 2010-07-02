@@ -47,7 +47,22 @@ en:
   planet_url: "http://planet.altlinux.org/"
   planet_title: "ALT Linux Planet"
 
-  app:
+  main:
+    header: "Sisyphus"
+    text: "<b>Sisyphus</b> is daily updated free software repository by
+                <abbr title=\"Independent ALT Linux development team\">ALT&nbsp;Linux&nbsp;Team</abbr>.
+                Participation in Sisyphus project is open for anyone. This
+                project is based upon software packaging and dependency
+                tracking technologies as well as robust developer collaboration
+                processes. Any ALT&nbsp;Linux distribution and <b>APT</b>
+                package manager is sufficient to use Sisyphus. Sisyphus is a
+                solution set constantly being under development which can be
+                used to create universal or specialized <b>Linux distributions</b>
+                or just <b>single systems</b>.
+                <br /><br />
+                Sisyphus is not intended for end users and its usage may result
+                in unpredictable behaviour. You might want to use ALT&nbsp;Linux
+                distributions and their usual updates if you want to run a reliable system."
 
   pages:
     project:
