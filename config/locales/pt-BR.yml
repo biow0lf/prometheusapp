@@ -21,6 +21,19 @@ pt-br:
   news_title: "notícias do website"
   packages: Pacotes
   packages_title: "informações do pacote"
+  pages: 
+    project: 
+      header: "Projeto: Prometheus"
+      text: |-
+          Projeto <b>Prometheus</b> - é um sistema para de criar analítico site para desenvolvedores e usuários de Sisyphus repositório.<br /><br />
+          Será interessante para os desenvolvedores devido à capacidade de perto interoperar com outros desenvolvedores e usuários de seus pacotes. Mantenedores pode enviar informações para a equipe de anunciar mudanças em diferentes Theis pacotes. Também se pode juntar às equipas com os mesmos interesses, o que leva a embalagem devido à melhoria da qualidade de trabalho comum sobre características e bugs fixação. E para cada mainteiner de saber quem pode substituí-lo em caso de ausência. 
+           Este site pode ser especialmente útil para os novos membros Equipe ALT Linux. Ela dá respostas "quem é quem", "quem faz o quê", "o que é status" no campo interessante. 
+          <br /><br />
+           Sisyphus usuários poderão obter informações completas sobre um pacote. Eles poderiam seguir links úteis (site original, ALT Linux-temas específicos, wiki, etc.) Isto reduz perguntas em listas e organiza documentação disponível ALT Linux. 
+          <br /><br />
+           Isto pode ser ferramenta útil para ALT Linux Ltd. e ALT Linux equipa principal, também, na medida em que dá informações sobre Sisyphus desenvolvimento, os aspectos fortes e fracos, apoiou activamente utilizados e grupos de pacotes. 
+          <br /><br />
+           Outro aspecto positivo do projeto é propriedade posibbility a utilizá-lo em conjunto com qualquer outro pacote repositório instantâneo (não apenas em si Sisyphus). Para o desenvolvimento local dentro de pequenos grupos ou mesmo sozinho, para si.
   rss: RSS
   rss_title: RSS
   security: Segurança
