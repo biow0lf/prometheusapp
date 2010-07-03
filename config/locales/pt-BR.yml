@@ -26,6 +26,7 @@ pt-br:
   security: Segurança
   security_title: "as correções de segurança"
   srpms: "SRPMs:"
+  top_header: "Sisyphus repositório"
   wiki: Wiki
   wiki_title: "sisyphus wiki"
   wiki_url: "http://www.altlinux.com.br/wiki/Sisyphus"
