@@ -1,0 +1,31 @@
+--- 
+pt-br: 
+  about: Sobre
+  about_title: "sobre projeto Prometheus"
+  find: buscar
+  home: Home
+  home_title: "página inicial"
+  last_update: "Última atualização:"
+  mailing_list: "Mailing list"
+  mailing_list_title: community-en@
+  mailing_list_url: "http://lists.altlinux.org/mailman/listinfo/community-en/"
+  main: 
+    header: Sisyphus
+    text: |-
+        <b>Sisyphus</b> &mdash; - é um repositório de software livre diariamente atualizado pela <abbr title="ALT Linux">Equipe ALT&nbsp;Linux&nbsp;</abbr>.A participação no projeto Sisyphus é aberto. Na base deste projeto, existem tecnologias de embedded e dependências o software de rastreamento e também conhecidos processos de interação desenvolvedores. ALT Qualquer distribuição Linux e pacote gestor <b>APT</b>. Sisyphus &mdash; está permanentemente desenvolvido um conjunto de soluções. Você pode usá-las para criar e se especializar em <b>Distribuições Linux</b> e <b>integrações de projetos</b>.
+        <br /><br />
+        Sisyphus não é destino para usuários finais,e sua utilização pode resultar em danos imprevisíveis.  Você deve usar distribuições ALT Linux disponíveis em nosso website se você quiser ter sistema confiável.
+  maintainers: Mantenedores
+  maintainers_title: "informações dos mantenedores"
+  news: Notícias
+  news_title: "notícias do website"
+  packages: Pacotes
+  packages_title: "informações do pacote"
+  rss: RSS
+  rss_title: RSS
+  security: Segurança
+  security_title: "as correções de segurança"
+  srpms: "SRPMs:"
+  wiki: Wiki
+  wiki_title: "sisyphus wiki"
+  wiki_url: "http://www.altlinux.com.br/wiki/Sisyphus"
