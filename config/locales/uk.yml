@@ -5,6 +5,7 @@ uk:
   blog: Blog
   blog_title: blog
   blog_url: "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
+  default_title: "Prometheus 2.0"
   find: пошук
   home: Головна
   home_title: "головна сторінка сайта"
