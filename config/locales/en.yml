@@ -63,6 +63,8 @@ en:
                 Sisyphus is not intended for end users and its usage may result
                 in unpredictable behaviour. You might want to use ALT&nbsp;Linux
                 distributions and their usual updates if you want to run a reliable system."
+  groups:
+    header: "Package groups"
 
   pages:
     project:
