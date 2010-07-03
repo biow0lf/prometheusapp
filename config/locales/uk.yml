@@ -1,0 +1,45 @@
+--- 
+uk: 
+  about: "Про проект"
+  about_title: "проект Prometheus"
+  blog: Blog
+  blog_title: blog
+  blog_url: "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
+  find: пошук
+  home: Головна
+  home_title: "головна сторінка сайта"
+  last_update: "Останнє оновлення:"
+  mailing_list: Розсилка
+  mailing_list_title: sisyphus@
+  mailing_list_url: "http://lists.altlinux.org/mailman/listinfo/sisyphus/"
+  main: 
+    header: Sisyphus
+    text: "<b>Sisyphus</b> &mdash; репозиторій пакетів вільних програм, який щоденно оновлюється <abbr title=\"Незалежна команда розробників ALT Linux\">ALT&nbsp;Linux&nbsp;Team</abbr>. Участь у Sisyphus відкрита для всіх бажаючих. В основі Sisyphus лежать технології збірки програм та обліку залежностей між ними, а також відпрацьовані процеси по взаємодії між розробниками. Для використання Sisyphus достатньо наявності будь-якого дистрибутива ALT&nbsp;Linux та засобів управління пакетами програм <b>APT</b>. Sisyphus &mdash; це набір рішень, що постійно розвиваються, на основі якого можливе створення універсальних чи спеціалізованих <b>дистрибутивів Linux</b> і <b>одиночних впроваджень</b>. <br /><br /> Sisyphus не направлений на задоволення потреб кінцевих користувачів, і його використання може призвести до непередбачуваних наслідків. Якщо Вам потрібна система, яка надійно працює, то слід використовувати тілько дистрибутиви ALT&nbsp;Linux та штатні обовлення до них.\n"
+  maintainers: Майнтейнери
+  maintainers_title: "інформація про майнтейнерів"
+  news: Новини
+  news_title: "новини сайта"
+  packages: Пакети
+  packages_title: "інформація про пакети"
+  pages: 
+    project: 
+      header: "Project Prometheus"
+      text: |-
+          <b>Prometheus</b> project is an attempt to create analytic site for developers and users of Sisyphus repository.<br /><br />
+          It is useful for developers due to ability to more closely interoperate with other developers and users of respective packages. This site is especially valueable to new ALT Linux Team members. It gives answers "who is who", "who does what", "what status is" in interesting field.<br /><br />
+          Sisyphus users can get full information about a package beforehand. There are handy links (site of origin, ALT Linux specific issues, wiki, etc.).<br /><br />
+          The project is useful for ALT Linux Ltd. and ALT Linux core team too, as it gives information about Sisyphus development, strong and weak aspects, actively supported and used groups of packages.<br /><br />
+          Another nice property of the project is posibility to use it together with any other package repository snapshot (not only Sisyphus itself), for local development within a small group or even one's self.
+      title: "Prometheus 2.0 - Information about the project"
+  planet: Planet
+  planet_title: "ALT Linux Planet"
+  planet_url: "http://planet.altlinux.org/"
+  rss: RSS
+  rss_title: RSS
+  security: Безпека
+  security_title: "виправлення вразливостей"
+  srpms: "Пакетів:"
+  top_header: "Репозиторій Sisyphus"
+  wiki: Wiki
+  wiki_title: "громадський сайт sisyphus"
+  wiki_url: "http://www.altlinux.org/Sisyphus"
