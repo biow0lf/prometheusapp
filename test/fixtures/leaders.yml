@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  package: MyString
+  login: MyString
+  branch: MyString
+  vendor: MyString
+
+two:
+  package: MyString
+  login: MyString
+  branch: MyString
+  vendor: MyString
