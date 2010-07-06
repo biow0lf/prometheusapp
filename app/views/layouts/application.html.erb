@@ -98,37 +98,37 @@ function show(divnum){
   <ul>
     <li onmouseover="m_on('li1')" onmouseout="m_off('li1')" id="li1">
       <div id="dli1">
-        <%= link_to_unless_current t('home'), root_url, :title => t('home_title') %>
+        <%= link_to_unless_current t('home'), '/' + params[:locale], :title => t('home_title') %>
       </div>
     </li>
     <li onmouseover="m_on('li2')" onmouseout="m_off('li2')" id="li2">
       <div id="dli2">
-        <%= link_to_unless_current t('news'), page_path("news"), :title => t('news_title') %>
+        <%= link_to_unless_current t('news'), '/' + params[:locale] + '/news', :title => t('news_title') %>
       </div>
     </li>
     <li onmouseover="m_on('li3')" onmouseout="m_off('li3')" id="li3">
       <div id="dli3">
-        <%= link_to_unless_current t('packages'), '/packages', :title => t('packages_title') %>
+        <%= link_to_unless_current t('packages'), '/' + params[:locale] + '/packages', :title => t('packages_title') %>
       </div>
     </li>
     <li onmouseover="m_on('li4')" onmouseout="m_off('li4')" id="li4">
       <div id="dli4">
-        <%= link_to_unless_current t('maintainers'), '/people', :title => t('maintainers_title') %>
+        <%= link_to_unless_current t('maintainers'), '/' + params[:locale] + '/people', :title => t('maintainers_title') %>
       </div>
     </li>
     <li onmouseover="m_on('li5')" onmouseout="m_off('li5')" id="li5">
       <div id="dli5">
-        <%= link_to_unless_current t('security'), page_path("security"), :title => t('security_title') %>
+        <%= link_to_unless_current t('security'), '/' + params[:locale] + '/security', :title => t('security_title') %>
       </div>
     </li>
     <li onmouseover="m_on('li6')" onmouseout="m_off('li6')" id="li6">
       <div id="dli6">
-        <%= link_to_unless_current t('about'), page_path("project"), :title => t('about_title') %>
+        <%= link_to_unless_current t('about'), '/' + params[:locale] + '/project', :title => t('about_title') %>
       </div>
     </li>
     <li onmouseover="m_on('li7')" onmouseout="m_off('li7')" id="li7">
       <div id="dli7">
-        <%= link_to_unless_current t('rss'), page_path("rss"), :title => t('rss_title') %>
+        <%= link_to_unless_current t('rss'), '/' + params[:locale] + '/rss', :title => t('rss_title') %>
       </div>
     </li>
     <li onmouseover="m_on('li8')" onmouseout="m_off('li8')" id="li8">
