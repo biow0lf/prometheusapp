@@ -9,7 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'pg'
 gem 'high_voltage'
 
-gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git'
+#gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git'
 
 group :development do
   gem 'tolk'
