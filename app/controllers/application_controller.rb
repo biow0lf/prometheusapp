@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 #    params[:locale] ||= request.preferred_language_from(available)
 #    params[:locale] ||= 'en'
     I18n.locale = params[:locale]
+    I18n.locale = 'pt-br' if params[:locale] == 'br'
 #    set_locale params[:locale]
   end
 end
