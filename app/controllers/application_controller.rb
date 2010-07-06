@@ -4,12 +4,9 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
   def set_locale
-#    available = %w{en ru uk}
-#    params[:locale] ||= request.preferred_language_from(available)
-#    params[:locale] ||= 'en'
+    params[:locale] ||= 'en'
     I18n.locale = params[:locale]
     I18n.locale = 'pt-br' if params[:locale] == 'br'
-#    set_locale params[:locale]
   end
 end
 
