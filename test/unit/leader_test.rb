@@ -14,7 +14,7 @@ class Test::Unit::TestCase
     should "have 9882 leaders in database" do
       Leader.delete_all
       Leader.update_from_gitalt('ALT Linux', 'Sisyphus', 'test/data/list.packages.sisyphus')
-      assert_equal(Leader.count(:all), 15879)
+      assert_equal(Leader.count(:all), 9882)
     end
   end
 
