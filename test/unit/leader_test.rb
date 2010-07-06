@@ -22,6 +22,7 @@ end
 
 class LeaderTest < ActiveSupport::TestCase
   should_validate_presence_of :package, :login, :branch, :vendor
+  should_have_db_index :package, :branch, :vendor
   should_check_leader_for_exists_and_not_add_twice
   should_have_9882_leaders
 end
