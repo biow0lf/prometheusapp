@@ -1,0 +1,29 @@
+<script type="text/javascript">
+<!--
+offImg = new Image(); offImg.src="/images/plus.gif";
+onImg  = new Image(); onImg.src="/images/minus.gif";
+
+function showGrp(dirid){
+    if ( el = document.getElementById("dir"+dirid) ){
+        if (el.style.display == "none"){
+            el.style.display = "block";
+            document.images['img'+dirid].src = onImg.src;
+        } else {
+            el.style.display = "none";
+            document.images['img'+dirid].src = offImg.src;
+        }
+    }
+}
+-->
+</script>
+
+<div class="header"><%= t('groups.header') %></div>
+<p class="break" />
+
+<div style="font-size:12pt;">
+<% @groups.each do |group| -%>
+<%= link_to h(group.name), '/' + params[:locale] + '/packages/' + h(group.name), :class => 'news', :style => 'margin-left:14px;' %> (<%=h group.counter %>)<br />
+<% end -%>
+</div>
+
+<%= render :partial => "shared/fix" %>
