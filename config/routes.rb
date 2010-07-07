@@ -6,24 +6,29 @@ Prometheusapp::Application.routes.draw do |map|
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  map.resources :pages,
-    :controller => 'pages',
-    :only       => [:show]
+  match '(/:locale)/project', :to => 'pages#project', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/rss', :to => 'pages#rss', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/news', :to => 'pages#news', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/security', :to => 'pages#security', :constraints => { :locale => SUPPORTED_LOCALES }
+
+#  map.resources :pages, :controller => 'pages', :only => [:show]
+
+#  map.resources :posts, :path_prefix => '/:locale', :controller => 'pages', :only => [:show]
 
   # /api/v1/
 
   # legacy links
-  match '/news', :to => redirect("http://news.prometheus...")
+#  match '/news', :to => redirect("http://news.prometheus...")
 
-  match '(/:locale)/project', :to => redirect {|params| if params[:locale].nil? then "/pages/project" else "/#{params[:locale]}/pages/project" end }, :constraints => { :locale => SUPPORTED_LOCALES }
+#  match '(/:locale)/project', :to => redirect {|params| if params[:locale].nil? then "/pages/project" else "/#{params[:locale]}/pages/project" end }, :constraints => { :locale => SUPPORTED_LOCALES }
 
-  scope '/:locale' do
-    resources :pages, :controller => 'high_voltage/pages', :only => [:show], :constraints => { :locale => SUPPORTED_LOCALES }
-  end
+#  scope '(/:locale)' do
+#    resources :pages, :controller => 'high_voltage/pages', :only => [:show], :constraints => { :locale => SUPPORTED_LOCALES }
+#  end
 
   match '(/:locale)', :to => 'home#index', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  match '(/:locale)/packages', :to => 'home#groups_list', :constraints => { :locale => SUPPORTED_LOCALES }
+#  match '(/:locale)/packages', :to => 'home#groups_list', :constraints => { :locale => SUPPORTED_LOCALES }
 
   root :to => 'home#index'
 
