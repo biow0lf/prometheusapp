@@ -4,6 +4,12 @@
 en:
   hello: "Hello world"
 
+  app:
+    english: "English"
+    russian: "Russian"
+    ukrainian: "Ukrainian"
+    portuguese: "Portuguese (Brasilian)"
+
   default_title: "Prometheus 2.0"
   top_header: "Sisyphus repository"
   find: "find"
