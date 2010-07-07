@@ -10,4 +10,19 @@ class Maintainer < ActiveRecord::Base
                                                                     :login => login,
                                                                     :team => team } ) == 1
   end
+  
+  def self.top15
+    find_by_sql("SELECT COUNT(acls.package) AS counter,
+                        maintainers.name AS name,
+                        maintainers.login AS login
+                 FROM acls, maintainers
+                 WHERE acls.branch = 'Sisyphus'
+                 AND acls.vendor = 'ALT Linux'
+                 AND acls.login = maintainers.login
+                 AND maintainers.team = false
+                 GROUP BY maintainers.name, maintainers.login
+                 ORDER BY 1 DESC LIMIT 15")
+  end
+  
 end
+
