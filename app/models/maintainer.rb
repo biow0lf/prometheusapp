@@ -24,5 +24,41 @@ class Maintainer < ActiveRecord::Base
                  ORDER BY 1 DESC LIMIT 15")
   end
   
+  # TODO: write test for this
+  def self.update_packager_list(vendor, branch, path)
+    Dir.glob(path).each do |file|
+      begin
+        rpm = RPM::Package::open(file)
+        maintainer = rpm[1015]
+        maintainer_name = maintainer.split('<')[0].chomp
+        maintainer_name.strip!
+        maintainer_email = maintainer.chop.split('<')[1]
+
+        maintainer_email.downcase!
+
+        maintainer_email.gsub!(' at altlinux.ru', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux.org', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux dot org', '@altlinux.org')
+        maintainer_email.gsub!(' at altlinux dot ru', '@altlinux.org')
+        maintainer_email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
+        maintainer_email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
+        maintainer_email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
+
+        maintainer_login = maintainer_email.split('@')[0]
+        maintainer_domain = maintainer_email.split('@')[1]
+
+        maintainer2 = Maintainer.new
+
+        if maintainer_domain == 'packages.altlinux.org'
+          Maintainer.create(:team => 'yes', :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email)
+        else
+          Maintainer.create(:team => 'no', :login => maintainer_login, :name => maintainer_name, :email => maintainer_email)
+        end
+      rescue RuntimeError
+        puts "Bad src.rpm -- " + file
+      end
+    end
+  end
+  
 end
 
