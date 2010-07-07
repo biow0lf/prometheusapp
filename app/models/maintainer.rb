@@ -1,5 +1,6 @@
 class Maintainer < ActiveRecord::Base
   validates_presence_of :name, :email, :login, :team
+  validates_uniqueness_of :login
 
   validate :uniqueness_of_email_login_and_team
 
