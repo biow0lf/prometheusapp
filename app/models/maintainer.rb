@@ -49,12 +49,12 @@ class Maintainer < ActiveRecord::Base
         maintainer_login = maintainer_email.split('@')[0]
         maintainer_domain = maintainer_email.split('@')[1]
 
-        maintainer2 = Maintainer.new
-
-        if maintainer_domain == 'packages.altlinux.org'
-          Maintainer.create(:team => 'yes', :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email)
-        else
-          Maintainer.create(:team => 'no', :login => maintainer_login, :name => maintainer_name, :email => maintainer_email)
+        if Maintainer.where(:login => maintainer_login).count == 0
+          if maintainer_domain == 'packages.altlinux.org'
+            Maintainer.create(:team => 'yes', :login => '@' + maintainer_login, :name => maintainer_name, :email => maintainer_email)
+          else
+            Maintainer.create(:team => 'no', :login => maintainer_login, :name => maintainer_name, :email => maintainer_email)
+          end
         end
       rescue RuntimeError
         puts "Bad src.rpm -- " + file
