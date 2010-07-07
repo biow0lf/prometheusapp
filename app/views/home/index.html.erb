@@ -5,5 +5,56 @@
 </span>
 </p>
 <p class="break" />
+<div class="header"><%= ("Latest changes") %></div>
+<!--#include virtual="/cgi-bin/stats.pl?type=lastrpm" -->
+<p class="break" />
+<div style="text-align:center">
+<a href="/releases" class="news" title="<%= ("previous releases") %>">&raquo; <%= ("another transfers") %></a>
+</div>
+</div>
+<div id="bottom-offset-l"><div id="bottom-offset-r">&nbsp;</div></div><div id="rightbar">
+<div class="headleft">
+<div class="headright" title="<%= ("sort maintainers by amount of packages") %>">
+<%= ("TOP maintainers") %>
+</div>
+<img id="topMain" src="/images/collapse.gif" class="close" title="<%= ("hide window") %>" alt="<%= ("hide window") %>" />
+</div>
+<div id="topMainDiv" style="border: dotted #aabccd 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+
+        <% @top15.each do |t| -%>
+          <tr>
+            <td style="text-align: left;">
+              <%= link_to t.name, '/' + params[:locale] + '/packager/' + t.login, :class => 'news', :title => ("information about the packager") %>
+            </td>
+            <td style="text-align: right;"><%= t.counter %></td>
+          </tr>
+        <% end -%>
+
+<tr><td colspan="2" align="center">...</td></tr>
+</table>
+</div><br />
+    <div class="headleft">
+<div class="headright" title="<%= ("sort packages by amount of releases in the last half of year") %>">
+<%= ("TOP RPMs") %>
+</div>
+<img id="topRPM" src="/images/collapse.gif" class="close" title="<%= ("hide window") %>" alt="<%= ("hide window") %>" />
+    </div>
+<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+<!--#include virtual="/cgi-bin/stats.pl?type=activity" -->
+<tr><td colspan="2" align="center">...</td></tr>
+</table>
+</div><br />
+    <div class="headleft">
+<div class="headright" title="<%= ("tips and tricks") %>">
+<% ("tips &amp; tricks") %>
+</div>
+<img id="topTips" src="/images/collapse.gif" class="close" title="<%=h _("hide window") %>" alt="<%=h _("hide window") %>" />
+    </div>
+    <div id="topTipsDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px; text-align: justify;padding:2px">
+<b><%= ("Sisyphus sync") %></b><br /><%= ("<b>Q:</b> How can I skip heap of packages if I even don't know why I need them?") %><br /><%= ("<b>A:</b> Create filter for rsync with the help of this") %> <a href="/<%=h params[:locale] %>/rsync.shtml" class="news"><%= ("form") %></a>
+    </div>
+</div>
 
 <%= render :partial => 'shared/fix' %>
