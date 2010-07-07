@@ -39,6 +39,8 @@ class Maintainer < ActiveRecord::Base
         maintainer_email.gsub!(' at altlinux.org', '@altlinux.org')
         maintainer_email.gsub!(' at altlinux dot org', '@altlinux.org')
         maintainer_email.gsub!(' at altlinux dot ru', '@altlinux.org')
+        maintainer_email.gsub!('@altlinux.ru', '@altlinux.org')
+        maintainer_email.gsub!('@altlinux.com', '@altlinux.org')
         maintainer_email.gsub!(' at packages.altlinux.org', '@packages.altlinux.org')
         maintainer_email.gsub!(' at packages.altlinux.ru', '@packages.altlinux.org')
         maintainer_email.gsub!('@packages.altlinux.ru', '@packages.altlinux.org')
