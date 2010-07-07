@@ -11,6 +11,7 @@ Prometheusapp::Application.routes.draw do |map|
   match '(/:locale)/news', :to => 'pages#news', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/security', :to => 'pages#security', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/packages', :to => 'home#groups_list', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packages/:group(/:group2(/:group3))', :to => 'home#bygroup', :constraints => { :locale => SUPPORTED_LOCALES }
 
 
   # /api/v1/
