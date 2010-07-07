@@ -1,0 +1,18 @@
+<% title ("Prometheus 2.0 - Group - ") + @group %>
+<% url "/packages/" + @group %>
+
+<div class="header"><%= ("Group") %> :: <%= @group %></div><p class="news" />
+
+<% @srpms.each do |srpm| -%>
+<p class="news" />
+<span class="news-date-new"><%= link_to srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + srpm.name, :class => 'news', :title => ("detailed information about the package") -%>
+</span><br /><br />
+<b><%= ("Current version:") %></b> <span class="news-text"><%= srpm.version %>-<%= srpm.release %></span><br />
+<b><%= ("Build time:") %></b> <span class="news-text"><%= srpm.buildtime %> (<%= time_ago_in_words(srpm.buildtime) %> <%= ("ago") %>)</span><br />
+<b><%= ("Summary:") %></b> <span class="news-text"><%= srpm.summary %></span><br />
+
+<b><%= ("Changes:") %></b> <div class="para">TODO</div>
+
+<% end -%>
+
+<%= render :partial => 'shared/fix' %>
