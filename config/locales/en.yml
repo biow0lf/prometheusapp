@@ -70,6 +70,7 @@ en:
                 in unpredictable behaviour. You might want to use ALT&nbsp;Linux
                 distributions and their usual updates if you want to run a reliable system."
   groups:
+    title: "Prometheus 2.0 - Groups"
     header: "Package groups"
 
   pages:

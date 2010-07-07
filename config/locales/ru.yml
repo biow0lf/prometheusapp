@@ -7,6 +7,9 @@ ru:
   blog_url: "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
   default_title: "Prometheus 2.0"
   find: искать
+  groups: 
+    header: "Группы пакетов"
+    title: "Prometheus 2.0 - Пакеты"
   home: Главная
   home_title: "главная страница сайта"
   last_update: "Последнее обновление:"
