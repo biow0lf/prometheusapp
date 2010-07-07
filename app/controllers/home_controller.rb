@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @top15 = Maintainer.top15
   end
 
   def groups_list
