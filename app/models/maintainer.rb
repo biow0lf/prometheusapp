@@ -25,7 +25,7 @@ class Maintainer < ActiveRecord::Base
   end
   
   # TODO: write test for this
-  def self.update_packager_list(vendor, branch, path)
+  def self.update_maintainer_list(vendor, branch, path)
     Dir.glob(path).each do |file|
       begin
         rpm = RPM::Package::open(file)
