@@ -87,7 +87,7 @@ function show(divnum){
 
 <div id="top-line">
   <div id="vinfo">
-    <b><%= t('last_update') %></b> <%= Date.today %> | <b><%= t('srpms') %> <!--<#%= Srpm.count_srpms_in_sisyphus %>--></b>
+    <b><%= t('last_update') %></b> <%= Date.today %> | <b><%= t('srpms') %> <%= Srpm.count_srpms_in_sisyphus %></b>
   </div>
 
   <div style="text-align: right"><%= link_to_unless_current 'en', '/en' + yield(:url), :title => t('app.english') %> <%= link_to_unless_current 'ru', '/ru' + yield(:url), :title => t('app.russian') %> <%= link_to_unless_current 'uk', '/uk' + yield(:url), :title => t('app.ukrainian') %> <%= link_to_unless_current 'br', '/br' + yield(:url), :title => t('app.portuguese') %></div>
