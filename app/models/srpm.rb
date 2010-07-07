@@ -11,5 +11,11 @@ class Srpm < ActiveRecord::Base
                                                               :version => version,
                                                               :release => release } ) == 1
   end
+
+
+  def self.count_srpms_in_sisyphus
+    count :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }
+  end
+
 end
 
