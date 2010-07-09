@@ -62,5 +62,33 @@ class Maintainer < ActiveRecord::Base
     end
   end
 
+  # TODO: write tests for this
+  def self.find_all_maintainers_in_sisyphus
+    find_by_sql("SELECT COUNT(acls.package) AS counter,
+                        maintainers.name AS name,
+                        maintainers.login AS login
+                 FROM acls, maintainers
+                 WHERE maintainers.login = acls.login
+                 AND maintainers.team = 'no'
+                 AND acls.branch = 'Sisyphus'
+                 AND acls.vendor = 'ALT Linux'
+                 GROUP BY maintainers.name, maintainers.login
+                 ORDER BY maintainers.name ASC")
+  end
+
+  # TODO: write tests for this
+  def self.find_all_teams_in_sisyphus
+    find_by_sql("SELECT COUNT(acls.package) AS counter,
+                        maintainers.name AS name,
+                        maintainers.login AS login
+                 FROM acls, maintainers
+                 WHERE maintainers.login = acls.login
+                 AND maintainers.team = 'yes'
+                 AND acls.branch = 'Sisyphus'
+                 AND acls.vendor = 'ALT Linux'
+                 GROUP BY maintainers.name, maintainers.login
+                 ORDER BY maintainers.name ASC")
+  end
+
 end
 
