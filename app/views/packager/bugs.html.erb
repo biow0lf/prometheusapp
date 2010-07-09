@@ -1,0 +1,37 @@
+<% title ("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + ("&raquo; - Bugs and FR") -%>
+<% url "/packager/" + @maintainer.login + "/bugs" -%>
+
+<div class="header"><%= ("Maintainer:") %> <%= @maintainer.name %></div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= ("information about maintainer") %>"><%= ("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/srpms" class="news" title="<%= ("packages which was built by this maintainer") %>"><%= ("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= ("gear") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><p class="news" /><br />
+<b><%= ("Total records:") %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
+
+<div style="text-align:left;margin-left:2em;margin-top:1.5em;">
+<span class="tabsel">&nbsp;<%= ("open") %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to ("total"), '/' + params[:locale]  + '/packager/' + @maintainer.login + '/allbugs', :class => 'news' %>&nbsp;</span>
+<table id="bugs" cellspacing="0" cellpadding="3">
+  <tr>
+    <th><%= ("id") %></th>
+    <th><%= ("package") %></th>
+    <th><%= ("severity") %></th>
+    <th><%= ("status") %></th>
+    <th><%= ("reporter") %></th>
+    <th><%= ("summary") %></th>
+  </tr>
+
+<% @bugs.each do |bug| -%>
+  <tr>
+    <td>
+      <%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id.to_s, :class => 'news', :target => '_blank' %>
+    </td>
+    <td><%= bug.component %></td>
+    <td><%= bug.bug_severity %></td>
+    <td><%= bug.bug_status %></td>
+    <td><%= bug.reporter.gsub('@', ' at ') %></td>
+    <td><%= bug.short_desc %></td>
+  </tr>
+<% end -%>
+
+</table>
+
+<%= render :partial => 'shared/fix' %>

@@ -1,0 +1,42 @@
+<% title ("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + ("&raquo; - Packages") -%>
+<% url "/packager/" + @maintainer.login + "/srpms" -%>
+
+<div class="header"><%= ("Maintainer:") %> <%= @maintainer.name %></div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= ("information about maintainer") %>"><%= ("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= ("gear") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/bugs" class="news" title="<%= ("Bugs/FR statistics assigned to this maintainer") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><p class="break" />
+<b><%= ("List of packages which was built by this maintainer:") %></b> [<%= @maintainer.sisyphus.count %>] <br /><br />
+
+<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+  <tr>
+    <th id="repocop" class="nosort"><%= ("repo<br/>cop") %></th>
+    <th class="sort"><%= ("package") %></th>
+    <th class="nosort"><%= ("current<br />version") %></th>
+    <th class="sort"><%= ("build time") %></th>
+    <th class="nosort"><%= ("age") %></th>
+    <th class="nosort"><%= ("Url") %></th>
+    <th class="nosort"><%= ("Summary") %></th>
+  </tr>
+
+  <% @maintainer.sisyphus.each do |acl| -%>
+  <% if !acl.srpm.nil? -%>
+  <tr>
+    <td>
+      <%= link_to '<img src="/images/' + acl.srpm.repocop + '.png" alt="' + acl.srpm.repocop + '" />', '/srpm/Sisyphus/' + acl.srpm.name + '/repocop', :class => 'repocoplink', :title => 'repocop'  %>
+    </td>
+    <td class="strange">
+      <%= link_to acl.srpm.name, '/' + params[:locale] + '/srpm/Sisyphus/' + acl.srpm.name, :class => 'news' %>
+    </td>
+    <td><%= acl.srpm.version %>-<%= acl.srpm.release %></td>
+    <td><%= acl.srpm.buildtime %></td>
+    <td><%= time_ago_in_words(acl.srpm.buildtime) %> <%= ("ago") %></td>
+    <td>
+      <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news' %><% else %>-<% end %>
+    </td>
+    <td style="text-align:left;"><%= acl.srpm.summary %></td>
+  </tr>
+  <% end -%>
+  <% end -%>
+
+</table>
+
+<%= render :partial => 'shared/fix' %>

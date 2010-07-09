@@ -1,0 +1,22 @@
+<% title ("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + ("&raquo; - Gear") -%>
+<% url "/packager/" + @maintainer.login + "/gear" -%>
+
+<div class="header"><%= ("Maintainer:") %> <%= @maintainer.name %></div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= ("information about maintainer") %>"><%= ("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/srpms" class="news" title="<%= ("packages which was built by this maintainer") %>"><%= ("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/bugs" class="news" title="<%= ("Bugs/FR statistics assigned to this maintainer") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><p class="break" />
+
+<% if @gears.count != 0 -%>
+<table style="pretty">
+  <% @gears.each do |gear| -%>
+    <tr>
+      <td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;
+        <% gear.login = 'php_coder' if gear.login == 'php-coder' -%>
+        <%= link_to gear.package, 'http://git.altlinux.org/people/' + gear.login + '/packages/?p=' + gear.package + '.git', :class => 'news' %>
+      </td>
+      <td><%= gear.lastchange %></td>
+    </tr>
+  <% end -%>
+</table>
+<% end -%>
+
+<%= render :partial => 'shared/fix' %>
