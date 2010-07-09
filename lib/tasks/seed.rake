@@ -33,6 +33,48 @@ task :seed => :environment do
   Maintainer.create(:name => 'Aleksandr Blokhin', :email => 'sass@altlinux.org', :login => 'sass', :team => 'no')
   Maintainer.create(:name => 'Alexey Morozov', :email => 'morozov@altlinux.org', :login => 'morozov', :team => 'no')
 
+  # add Sisyphus branch
+  branch = Branch.new
+  branch.distribution = 'Sisyphus'
+  branch.vendor = 'ALT Linux'
+  branch.order_id = 0
+  branch.save!
+
+  # add Platform5 branch
+  branch = Branch.new
+  branch.distribution = 'Platform5'
+  branch.vendor = 'ALT Linux'
+  branch.order_id = 1
+  branch.save!
+
+  # add 5.1 branch
+  branch = Branch.new
+  branch.distribution = '5.1'
+  branch.vendor = 'ALT Linux'
+  branch.order_id = 2
+  branch.save!
+
+  # add 5.0 branch
+  branch = Branch.new
+  branch.distribution = '5.0'
+  branch.vendor = 'ALT Linux'
+  branch.order_id = 3
+  branch.save!
+
+  # add 4.1 branch
+  branch = Branch.new
+  branch.distribution = '4.1'
+  branch.vendor = 'ALT Linux'
+  branch.order_id = 4
+  branch.save!
+
+  # add 4.0 branch
+  branch = Branch.new
+  branch.distribution = '4.0'
+  branch.vendor = 'ALT Linux'
+  branch.order_id = 5
+  branch.save!
+
   puts Time.now.to_s + ": end"
 
   Mylock.unlock
