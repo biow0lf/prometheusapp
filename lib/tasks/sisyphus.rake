@@ -44,16 +44,16 @@ namespace :prometheusapp do
       Mylock.unlock
     end
 
-#    desc "Import *.noarch.rpm from Sisyphus to database"
-#    task :noarch => :environment do
-#      require 'rpm'
-#      Mylock("noarch")
-#      puts Time.now.to_s + ": import *.noarch.rpm from Sisyphus to database"
-#      Package.import_packages_noarch 'ALT Linux', 'Sisyphus'
-#      puts Time.now.to_s + ": end"
-#      Mylock.unlock
-#    end
-#
+    desc "Import *.noarch.rpm from Sisyphus to database"
+    task :noarch => :environment do
+      require 'rpm'
+      Mylock.lock("noarch")
+      puts Time.now.to_s + ": import *.noarch.rpm from Sisyphus to database"
+      Package.import_packages_noarch 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/noarch/RPMS/*.noarch.rpm"
+      puts Time.now.to_s + ": end"
+      Mylock.unlock
+    end
+
 #    desc "Import *.x86_64.rpm from Sisyphus to database"
 #    task :x86_64 => :environment do
 #      require 'rpm'
