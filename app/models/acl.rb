@@ -2,6 +2,9 @@ class Acl < ActiveRecord::Base
   validates_presence_of :package, :login, :branch, :vendor
   validate :uniqueness_of_package_login_branch_vendor
 
+  has_one :srpm, :foreign_key => 'name', :primary_key => 'package', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
+
+
   def uniqueness_of_package_login_branch_vendor
     errors.add(:uniq, "should be uniq") if Acl.count(:all, :conditions => {
                                                              :package => package,
