@@ -54,15 +54,15 @@ namespace :prometheusapp do
       Mylock.unlock
     end
 
-#    desc "Import *.x86_64.rpm from Sisyphus to database"
-#    task :x86_64 => :environment do
-#      require 'rpm'
-#      Mylock.lock("x86_64")
-#      puts Time.now.to_s + ": import *.x86_64.rpm from Sisyphus to database"
-#      Package.import_packages_x86_64 'ALT Linux', 'Sisyphus'
-#      puts Time.now.to_s + ": end"
-#      Mylock.unlock
-#    end
+    desc "Import *.x86_64.rpm from Sisyphus to database"
+    task :x86_64 => :environment do
+      require 'rpm'
+      Mylock.lock("x86_64")
+      puts Time.now.to_s + ": import *.x86_64.rpm from Sisyphus to database"
+      Package.import_packages_x86_64 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/x86_64/RPMS/*.x86_64.rpm"
+      puts Time.now.to_s + ": end"
+      Mylock.unlock
+    end
 
     desc "Import all leaders for packages from Sisyphus to database"
     task :leaders => :environment do
