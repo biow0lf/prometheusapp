@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  login: MyString
+  branch: MyString
+  vendor: MyString
+  leader: MyString
+
+two:
+  name: MyString
+  login: MyString
+  branch: MyString
+  vendor: MyString
+  leader: MyString
