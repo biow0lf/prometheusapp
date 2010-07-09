@@ -63,16 +63,16 @@ namespace :prometheusapp do
 #      puts Time.now.to_s + ": end"
 #      Mylock.unlock
 #    end
-#
-#    desc "Import all leaders for packages from Sisyphus to database"
-#    task :leaders => :environment do
-#      require 'open-uri'
-#      Mylock.lock("leaders")
-#      puts Time.now.to_s + ": import all leaders for packages from Sisyphus to database"
-#      Leader.update_from_gitalt 'ALT Linux', 'Sisyphus'
-#      puts Time.now.to_s + ": end"
-#      Mylock.unlock
-#    end
+
+    desc "Import all leaders for packages from Sisyphus to database"
+    task :leaders => :environment do
+      require 'open-uri'
+      Mylock.lock("leaders")
+      puts Time.now.to_s + ": import all leaders for packages from Sisyphus to database"
+      Leader.update_from_gitalt 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.packages.sisyphus'
+      puts Time.now.to_s + ": end"
+      Mylock.unlock
+    end
 
     desc "Import maintainers list from src.rpm from Sisyphus to database"
     task :maintainers => :environment do
