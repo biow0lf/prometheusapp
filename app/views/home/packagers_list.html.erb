@@ -1,0 +1,30 @@
+<% title ("Prometheus 2.0 - Maintainers") %>
+<% url "/people" %>
+
+<table width="100%" style="font-size:10pt;">
+<tr><th><%= ("Maintainers") %></th><th><%= ("Teams") %></th></tr>
+<tr>
+<td valign="top">
+<% @maintainers.each do |m| -%>
+  <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
+    <div style="float:left">
+      <%= link_to m.name, '/packager/' + m.login, :class => 'news' %> (<%= m.login %>)
+    </div>
+    <div style="float:right"> <%= m.counter %></div>
+  </div>
+<% end -%>
+</td>
+<td valign="top">
+<% @teams.each do |team| -%>
+  <div style="margin-bottom: 2px;text-align:left;border-bottom: 1px gray dotted; width: 95%; font-size: 9pt; height: 10pt">
+    <div style="float:left">
+      <%= link_to team.name, '/team/' + team.login[1..-1], :class => 'news' %> (<%= team.login[1..-1] %>)
+    </div>
+    <div style="float:right"> <%= team. counter %></div>
+  </div>
+<% end -%>
+</td>
+</tr>
+</table>
+
+<%= render :partial => 'shared/fix' %>
