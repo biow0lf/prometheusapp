@@ -1,0 +1,78 @@
+<% title ("Prometheus 2.0 - Package ") + @srpm.name -%>
+<% url "/srpm/" + @srpm.branch + '/' + @srpm.name -%>
+
+<div id="rightbar">
+<div class="headleft">
+<div class="headright" title="<%= ("ALT Linux repositories") %>">
+  <%= ("ALT Linux repos") %>
+</div>
+<img id="topRPM" src="/images/collapse.gif" class="close" title="<%= ("hide window") %>" alt="<%= ("hide window") %>" />
+</div>
+<div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
+<table style="font-size:8pt;" width="100%">
+<% @allsrpms.each do |rpm| -%>
+<tr>
+  <td style="text-align: left;">
+    <%= link_to rpm.branch + ':', '/' + params[:locale] + '/srpm/' + rpm.branch + '/' + rpm.name, :class => 'news' %>
+  </td>
+  <td style="text-align: right;"><%= rpm.version %>-<%= rpm.release %></td>
+</tr>
+<% end -%>
+</table>
+</div><br />
+</div>
+
+<div style="height:3em;">
+  <div id="rpmtop">
+    <b style="font-size:9pt;"><%= ("Group") %> :: <%= @srpm.group %></b><br />
+    <div class="header" style="letter-spacing:1px;"><%= ("Source RPM:") %> <%= @srpm.name %></div>
+  </div>
+</div>
+
+<div>
+<p class="break" />
+<span class="current">&nbsp;<b><%= ("Main") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/changelog" class="news" title="<%= ("full changelog") %>"><%= ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= ("spec") %>"><%= ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/get" class="news" title="<%= ("download latest version") %>"><%= ("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/gear" class="news" title="<%= ("this package in gear repositories") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= ("list of bugs and feature requests") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><p class="news" />
+<b><%= ("Current version:") %></b> <span style="text-decoration:underline"><%=h @srpm.version %>-<%= @srpm.release %></span><br />
+<b><%= ("Build date:") %></b> <%= @srpm.buildtime %> (<%= time_ago_in_words(@srpm.buildtime) %> <%= ("ago") %>)<br />
+<b><%= ("Size:") %></b> <%= number_to_human_size(@srpm.size) %><br /><br />
+
+<% if @srpm.url != nil -%>
+<b><%= ("Home page:") %></b> &nbsp; <%= link_to @srpm.url, @srpm.url, :class => 'news' %><br /><br />
+<% end -%>
+
+<b><%= ("License:") %></b> <span class="news-text"><%= @srpm.license %></span><br />
+
+<b><%= ("Summary:") %></b> <span class="news-text"><%= @srpm.summary %></span><br />
+<b><%= ("Description:") %></b> <div class="para"><%= simple_format h(@srpm.description) %></div>
+<p class="news" />
+<% if @maintainer != nil -%>
+<div class="maintainer"><b><%= ("Current maintainer:") %></b>
+<% if @maintainer.team == 'yes' -%>
+  <%= link_to @maintainer.name, '/' + params[:locale] + '/team/' + @maintainer.login[1..-1], :class => 'news', :title => ('information about maintainer') %><br /><br />
+<% else -%>
+  <%= link_to @maintainer.name, '/' + params[:locale] + '/packager/' + @maintainer.login, :class => 'news', :title => ('information about maintainer') %><br /><br />
+<% end -%>
+<% end -%>
+
+<b><%= ("List of rpms provided by this srpm:") %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+  <% @packages.each do |package| -%>
+    <li><%= package.name %></li>
+  <% end -%>
+  </ul>
+</div>
+
+<% if params[:branch] != 'Platform5' -%>
+<b><%= ("ACL:") %></b>
+<div class="para" style="margin-left: 0em;">
+  <ul>
+  <% @srpm.acls.each do |acl| -%>
+    <li><%=h acl.login %></li>
+  <% end -%>
+  </ul>
+</div>
+<% end -%>
+</div>
+
+<%= render :partial => 'shared/fix' %>
