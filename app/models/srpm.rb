@@ -1,9 +1,10 @@
 class Srpm < ActiveRecord::Base
-  validates_presence_of :branch, :vendor, :filename, :name, :version, :release
+  validates_presence_of :branch, :vendor, :filename, :name, :version, :release, :size
   validate :uniqueness_of_srpm
   default_scope order('LOWER(name)')
 
   has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
+  has_many :acls, :foreign_key => 'package', :primary_key => 'name', :conditions => { :branch => '#{self.branch}', :vendor => '#{self.vendor}' }
 
   def uniqueness_of_srpm
     errors.add(:uniq, "should be uniq") if Srpm.count(:all, :conditions => {
