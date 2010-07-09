@@ -16,7 +16,7 @@ class TeamController < ApplicationController
                                    AND teams.name = ?
                                    AND teams.branch = ?
                                    AND teams.vendor = ?
-                                   AND leader = "yes"
+                                   AND leader = \'yes\'
                                    LIMIT 1', '@' + params[:name], 'Sisyphus', 'ALT Linux' ])
 
       @members = Team.find_by_sql(['SELECT teams.login, maintainers.name
