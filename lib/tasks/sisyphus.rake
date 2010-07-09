@@ -84,15 +84,15 @@ namespace :prometheusapp do
       Mylock.unlock
     end
 
-#    desc "Import all teams from Sisyphus to database"
-#    task :teams => :environment do
-#      require 'open-uri'
-#      Mylock.lock("teams")
-#      puts Time.now.to_s + ": import all teams from Sisyphus to database"
-#      Team.update_from_gitalt 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.groups.sisyphus'
-#      puts Time.now.to_s + ": end"
-#      Mylock.unlock
-#    end
+    desc "Import all teams from Sisyphus to database"
+    task :teams => :environment do
+      require 'open-uri'
+      Mylock.lock("teams")
+      puts Time.now.to_s + ": import all teams from Sisyphus to database"
+      Team.update_from_gitalt 'ALT Linux', 'Sisyphus', 'http://git.altlinux.org/acl/list.groups.sisyphus'
+      puts Time.now.to_s + ": end"
+      Mylock.unlock
+    end
 
   end
 end
