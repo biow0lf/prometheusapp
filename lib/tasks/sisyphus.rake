@@ -34,16 +34,16 @@ namespace :prometheusapp do
       Mylock.unlock
     end
 
-#    desc "Import *.i586.rpm from Sisyphus to database"
-#    task :i586 => :environment do
-#      require 'rpm'
-#      Mylock.lock("i586")
-#      puts Time.now.to_s + ": import *.i586.rpm from Sisyphus to database"
-#      Package.import_packages_i586 'ALT Linux', 'Sisyphus'
-#      puts Time.now.to_s + ": end"
-#      Mylock.unlock
-#    end
-#
+    desc "Import *.i586.rpm from Sisyphus to database"
+    task :i586 => :environment do
+      require 'rpm'
+      Mylock.lock("i586")
+      puts Time.now.to_s + ": import *.i586.rpm from Sisyphus to database"
+      Package.import_packages_i586 'ALT Linux', 'Sisyphus', "/ALT/Sisyphus/files/i586/RPMS/*.i586.rpm"
+      puts Time.now.to_s + ": end"
+      Mylock.unlock
+    end
+
 #    desc "Import *.noarch.rpm from Sisyphus to database"
 #    task :noarch => :environment do
 #      require 'rpm'
