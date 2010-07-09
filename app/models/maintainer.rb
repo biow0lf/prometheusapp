@@ -4,6 +4,8 @@ class Maintainer < ActiveRecord::Base
 
   validate :uniqueness_of_email_login_and_team
 
+  has_many :sisyphus, :class_name => 'Acl', :foreign_key => 'login', :primary_key => 'login', :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }
+
   def uniqueness_of_email_login_and_team
     errors.add(:uniq, "should be uniq") if Maintainer.count(:all, :conditions => {
                                                                     :email => email,
