@@ -3,6 +3,8 @@ class Srpm < ActiveRecord::Base
   validate :uniqueness_of_srpm
   default_scope order('LOWER(name)')
 
+  has_many :repocops, :foreign_key => 'srcname', :primary_key => 'name'
+
   def uniqueness_of_srpm
     errors.add(:uniq, "should be uniq") if Srpm.count(:all, :conditions => {
                                                               :branch => branch,
