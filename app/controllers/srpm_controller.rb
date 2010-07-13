@@ -1,10 +1,8 @@
 class SrpmController < ApplicationController
 
   def main
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch => params[:branch],
-                         :vendor => 'ALT Linux' }
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
+
     if @srpm != nil
       @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
                                             srpms.release, srpms.branch,
@@ -26,11 +24,8 @@ class SrpmController < ApplicationController
                                   :sourcepackage => @srpm.filename,
                                   :arch => ["noarch", "i586"] },
                                 :order => 'name ASC'
-        @leader = Leader.first :conditions => {
-                                 :branch => params[:branch],
-                                 :vendor => 'ALT Linux',
-                                 :package => params[:name] }
-        @maintainer = Maintainer.first :conditions => { :login => @leader.login }
+        @leader = Leader.where(:branch => params[:branch], :vendor => 'ALT Linux', :package => params[:name]).first
+        @maintainer = Maintainer.where(:login => @leader.login).first
       elsif params[:branch] == 'Platform5'
         @packages = Package.all :conditions => {
                                   :branch => 'Sisyphus',
