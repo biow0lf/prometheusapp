@@ -46,6 +46,14 @@ Prometheusapp::Application.routes.draw do |map|
   #  map.connect '/repocop', :controller => 'repocop', :action => 'index'
   #  map.connect '/repocop/by-test/:testname', :controller => 'repocop', :action => 'bytest'
 
+  # legacy begin
+  match '(/:locale)/packager/:login/srpms?sort=age&order=desc', :to => 'packager#srpms', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/srpms?sort=age&order=asc', :to => 'packager#srpms', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/srpms?sort=name&order=desc', :to => 'packager#srpms', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/srpms?sort=name&order=asc', :to => 'packager#srpms', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/srpms?sort=status&order=desc', :to => 'packager#srpms', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/packager/:login/srpms?sort=status&order=asc', :to => 'packager#srpms', :constraints => { :locale => SUPPORTED_LOCALES }
+  # legacy end
 
   match '(/:locale)/search', :to => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/find.shtml', :to => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
