@@ -31,6 +31,7 @@ task :seed => :environment do
   Maintainer.create(:name => 'Konstantin Pavlov', :email => 'thresh@altlinux.org', :login => 'thresh', :team => 'no')
   Maintainer.create(:name => 'Aeliya Grevnyov', :email => 'gray_graff@altlinux.org', :login => 'gray_graff', :team => 'no')
   Maintainer.create(:name => 'Aleksandr Blokhin', :email => 'sass@altlinux.org', :login => 'sass', :team => 'no')
+  Maintainer.create(:name => 'Dmitry V. Levin', :email => 'ldv@altlinux.org', :login => 'ldv', :team => 'no')
   Maintainer.create(:name => 'Alexey Morozov', :email => 'morozov@altlinux.org', :login => 'morozov', :team => 'no')
 
   # add Sisyphus branch
