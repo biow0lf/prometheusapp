@@ -12,10 +12,7 @@ class HomeController < ApplicationController
     @group = @group + '/' + params[:group2] if !params[:group2].nil?
     @group = @group + '/' + params[:group3] if !params[:group3].nil?
 
-    @srpms = Srpm.all :conditions => {
-                        :group => @group,
-                        :branch => 'Sisyphus',
-                        :vendor => 'ALT Linux' }
+    @srpms = Srpm.where(:group => @group, :branch => 'Sisyphus', :vendor => 'ALT Linux')
   end
 
   def packagers_list
