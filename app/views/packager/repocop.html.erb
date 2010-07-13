@@ -7,12 +7,12 @@
 <span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= ("information about maintainer") %>"><%= ("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/srpms" class="news" title="<%= ("packages which was built by this maintainer") %>"><%= ("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= ("gear") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/bugs" class="news" title="<%= ("Bugs/FR statistics assigned to this maintainer") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%= ("Repocop") %></b>&nbsp;</span><p class="break" />
 <b><%= ("Repocop messages:") %></b><br /><br />
 
-<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+<table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th class="sort"><%= ("package") %></th>
-    <th id="repocop" class="sort"><%= ("status") %></th>
-    <th class="sort"><%= ("test") %></th>
-    <th class="nosort"><%= ("message") %></th>
+    <th><%= ("package") %></th>
+    <th><%= ("status") %></th>
+    <th><%= ("test") %></th>
+    <th><%= ("message") %></th>
   </tr>
 
 <% @maintainer.sisyphus.each do |acl| -%>
