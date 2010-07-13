@@ -1,0 +1,26 @@
+<% title ("Prometheus 2.0 - Package ") + h(@srpm.name) + (" - Gear") -%>
+<% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) + "/gear" -%>
+
+<div style="height:3em;">
+    <div id="rpmtop">
+        <b style="font-size:9pt;"><%=h ("Group") %> :: <%=h @srpm.group %></b><br />
+        <div class="header" style="letter-spacing:1px;"><%=h ("Source RPM:") %> <%=h @srpm.name %></div>
+    </div>
+</div>
+<div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%=h ("information about SRPM") %>"><%=h ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h ("full changelog") %>"><%=h ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h ("spec") %>"><%=h ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h ("download latest version") %>"><%=h ("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h ("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h ("list of bugs and feature requests") %>"><%=h ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h ("repocop bugreports") %>"><%=h ("Repocop") %></a>&nbsp;</span><div>
+
+<% if @gears.count != 0 -%>
+<table style="pretty">
+  <% @gears.each do |gear| -%>
+    <tr><td style="border-bottom: #aaa dotted 1px; padding-right:1em;">&middot;<!--<a href="http://git.altlinux.org/people/ldv/packages/?p=glibc.git" class="news">Dmitry V. Levin <ldv@altlinux.org></a>-->
+<% login = gear.login -%>
+<% login = 'php_coder' if gear.login == 'php-coder' -%>
+<%= link_to gear.login, 'http://git.altlinux.org/people/' + login + '/packages/?p=' + @srpm.name + '.git', :class => 'news' %>
+</td><td><%= gear.lastchange %></td></tr>
+  <% end -%>
+</table>
+<% end -%>
+</div>
+</div>
