@@ -6,15 +6,15 @@
 <span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= ("information about maintainer") %>"><%= ("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= ("gear") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/bugs" class="news" title="<%= ("Bugs/FR statistics assigned to this maintainer") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><p class="break" />
 <b><%= ("List of packages which was built by this maintainer:") %></b> [<%= @maintainer.sisyphus.count %>] <br /><br />
 
-<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+<table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th id="repocop" class="nosort"><%= ("repo<br/>cop") %></th>
-    <th class="sort"><%= ("package") %></th>
-    <th class="nosort"><%= ("current<br />version") %></th>
-    <th class="sort"><%= ("build time") %></th>
-    <th class="nosort"><%= ("age") %></th>
-    <th class="nosort"><%= ("Url") %></th>
-    <th class="nosort"><%= ("Summary") %></th>
+    <th><%= ("repo<br/>cop") %></th>
+    <th><%= ("package") %></th>
+    <th><%= ("current<br />version") %></th>
+    <th><%= ("build time") %></th>
+    <th><%= ("age") %></th>
+    <th><%= ("Url") %></th>
+    <th><%= ("Summary") %></th>
   </tr>
 
   <% @maintainer.sisyphus.each do |acl| -%>
