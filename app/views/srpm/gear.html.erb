@@ -1,15 +1,15 @@
-<% title ("Prometheus 2.0 - Package ") + h(@srpm.name) + (" - Gear") -%>
-<% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) + "/gear" -%>
+<% title ("Prometheus 2.0 - Package ") + @srpm.name + (" - Gear") -%>
+<% url "/srpm/" + @srpm.branch + '/' + @srpm.name + "/gear" -%>
 
 <div style="height:3em;">
     <div id="rpmtop">
-        <b style="font-size:9pt;"><%=h ("Group") %> :: <%=h @srpm.group %></b><br />
-        <div class="header" style="letter-spacing:1px;"><%=h ("Source RPM:") %> <%=h @srpm.name %></div>
+        <b style="font-size:9pt;"><%= ("Group") %> :: <%= @srpm.group %></b><br />
+        <div class="header" style="letter-spacing:1px;"><%= ("Source RPM:") %> <%= @srpm.name %></div>
     </div>
 </div>
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%=h ("information about SRPM") %>"><%=h ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h ("full changelog") %>"><%=h ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h ("spec") %>"><%=h ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h ("download latest version") %>"><%=h ("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h ("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h ("list of bugs and feature requests") %>"><%=h ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h ("repocop bugreports") %>"><%=h ("Repocop") %></a>&nbsp;</span><div>
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%= ("information about SRPM") %>"><%= ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/changelog" class="news" title="<%= ("full changelog") %>"><%= ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= ("spec") %>"><%= ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/get" class="news" title="<%= ("download latest version") %>"><%= ("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Gear") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= ("list of bugs and feature requests") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><div>
 
 <% if @gears.count != 0 -%>
 <table style="pretty">
