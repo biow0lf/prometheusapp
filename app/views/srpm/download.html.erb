@@ -33,37 +33,37 @@
 
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>" class="news" title="<%= ("information about SRPM") %>"><%= ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%= ("full changelog") %>"><%=h ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h ("spec") %>"><%=h ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%=h ("Download") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h ("this package in gear repositories") %>"><%=h ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h ("list of bugs and feature requests") %>"><%=h ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/repocop" class="news" title="<%=h ("repocop bugreports") %>"><%=h ("Repocop") %></a>&nbsp;</span>
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>" class="news" title="<%= ("information about SRPM") %>"><%= ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/changelog" class="news" title="<%= ("full changelog") %>"><%= ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= ("spec") %>"><%= ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Download") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/gear" class="news" title="<%= ("this package in gear repositories") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= ("list of bugs and feature requests") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span>
 
 <script type="text/javascript">
 <!--
 function changeHref (val){
   <% counter = 0 -%>
-  url<%=h counter %> = "<%=h '/Sisyphus/files/SRPMS/' + @srpm.filename %>";
+  url<%= counter %> = "<%= '/Sisyphus/files/SRPMS/' + @srpm.filename %>";
   <% counter += 1 -%>
 
   <% if @i586.count != 0 -%>
     <% @i586.each do |i| -%>
-      url<%=h counter %> = "<%=h '/Sisyphus/files/i586/RPMS/' + i.filename %>";
+      url<%=h counter %> = "<%= '/Sisyphus/files/i586/RPMS/' + i.filename %>";
       <% counter += 1 -%>
 	<% end -%>
   <% end -%>
 
   <% if @noarch.count != 0 -%>
     <% @noarch.each do |n| -%>
-      url<%=h counter %> = "<%=h '/Sisyphus/files/noarch/RPMS/' + n.filename %>";
+      url<%= counter %> = "<%= '/Sisyphus/files/noarch/RPMS/' + n.filename %>";
       <% counter += 1 -%>
 	<% end -%>
   <% end -%>
 
   <% if @x86_64.count != 0 -%>
     <% @x86_64.each do |x| -%>
-      url<%=h counter %> = "<%=h '/Sisyphus/files/x86_64/RPMS/' + x.filename %>";
+      url<%= counter %> = "<%= '/Sisyphus/files/x86_64/RPMS/' + x.filename %>";
       <% counter += 1 -%>
 	<% end -%>
   <% end -%>
 	
-  for (i=0; i < <%=h counter %> ; i++) {
+  for (i=0; i < <%= counter %> ; i++) {
     a = document.getElementById("pack_"+i);
 	switch (val) {
 	  case "0":	 a.href = "ftp://ftp.altlinux.org/pub/distributions/ALTLinux"+eval("url"+i); break;
@@ -104,7 +104,7 @@ function changeHref (val){
   <tr>
 	<td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
 	  <b>&middot;</b>
-		<a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/SRPMS/<%=h @srpm.filename %>" class="news"><%=h @srpm.filename %></a>
+		<a id="pack_0" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/SRPMS/<%= @srpm.filename %>" class="news"><%= @srpm.filename %></a>
 	</td>
 	<td style="text-align:right;">
 		<b><%= number_to_human_size(@srpm.size) %></b>
@@ -118,8 +118,8 @@ function changeHref (val){
   <% @i586.each do |i| -%>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
 		<b>&middot;</b>
-	    <a id="pack_<%=h counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/i586/RPMS/<%=h i.filename %>" class="news">
-		  <%=h i.filename %>
+	    <a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/i586/RPMS/<%= i.filename %>" class="news">
+		  <%= i.filename %>
 		</a>
 		</td><td style="text-align:right;">
 			<b><%= number_to_human_size(i.size) %></b>
@@ -133,7 +133,7 @@ function changeHref (val){
   <% @noarch.each do |n| -%>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
 		<b>&middot;</b>
-		<a id="pack_<%=h counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/noarch/RPMS/<%=h n.filename %>" class="news"><%=h n.filename %>
+		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/noarch/RPMS/<%= n.filename %>" class="news"><%= n.filename %>
 		</a>
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(n.size) %></b>
@@ -147,7 +147,7 @@ function changeHref (val){
   <% @x86_64.each do |x| -%>
   <tr><td style="border-bottom:dotted 1px #aaa; padding-right:1em;">
 		<b>&middot;</b>
-		<a id="pack_<%=h counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/x86_64/RPMS/<%=h x.filename %>" class="news"><%=h x.filename %>
+		<a id="pack_<%= counter %>" href="ftp://ftp.altlinux.org/pub/distributions/ALTLinux/Sisyphus/files/x86_64/RPMS/<%= x.filename %>" class="news"><%= x.filename %>
 		</a>
 	</td><td style="text-align:right;">
 		<b><%= number_to_human_size(x.size) %></b>
