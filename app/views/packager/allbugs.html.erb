@@ -11,29 +11,43 @@
 <span class="tabsel">&nbsp;<%= ("total") %>&nbsp;</span>
 </div>
 
-<table id="bugs" cellspacing="0" cellpadding="3">
-  <tr>
-    <th><%= ("id") %></th>
-    <th><%= ("package") %></th>
-    <th><%= ("severity") %></th>
-    <th><%= ("status") %></th>
-    <th><%= ("resolution") %></th>
-    <th><%= ("reporter") %></th>
-    <th><%= ("summary") %></th>
-  </tr>
-
-<% @allbugs.each do |bug| -%>
-  <tr>
-    <td>
-      <%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id.to_s, :class => 'news', :target => '_blank' %>
-    </td>
-    <td><%= bug.component %></td>
-    <td><%= bug.bug_severity %></td>
-    <td><%= bug.bug_status %></td>
-    <td><%= bug.resolution %></td>
-    <td><%= bug.reporter.gsub('@', ' at ') %></td>
-    <td><%= bug.short_desc %></td>
-  </tr>
-<% end -%>
-
+<table id="bugs" cellspacing="0" cellpadding="3" class="tablesorter">
+  <thead>
+    <tr>
+      <th><%= ("id") %></th>
+      <th><%= ("package") %></th>
+      <th><%= ("severity") %></th>
+      <th><%= ("status") %></th>
+      <th><%= ("resolution") %></th>
+      <th><%= ("reporter") %></th>
+      <th><%= ("summary") %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @allbugs.each do |bug| -%>
+    <tr>
+      <td>
+        <%= link_to bug.bug_id, 'https://bugzilla.altlinux.org/' + bug.bug_id.to_s, :class => 'news', :target => '_blank' %>
+      </td>
+      <td><%= bug.component %></td>
+      <td><%= bug.bug_severity %></td>
+      <td><%= bug.bug_status %></td>
+      <td><%= bug.resolution %></td>
+      <td><%= bug.reporter.gsub('@', ' at ') %></td>
+      <td><%= bug.short_desc %></td>
+    </tr>
+  <% end -%>
+  </tbody>
 </table>
+
+<%= render :partial => 'shared/fix' %>
+<script type="text/javascript" id="js">
+$(document).ready(function()
+{
+  $("#bugs").tablesorter( {
+    cssAsc: [""],
+    cssDesc: [""],
+    cssHeader: [""]
+  } );
+});
+</script>
