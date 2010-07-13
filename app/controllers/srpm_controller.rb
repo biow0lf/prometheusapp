@@ -40,33 +40,21 @@ class SrpmController < ApplicationController
   end
 
   def changelog
-    #@branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch => params[:branch],
-                         :vendor => 'ALT Linux' }
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
     if @srpm == nil
       render :action => "nosuchpackage"
     end
   end
 
   def rawspec
-    #@branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch => params[:branch],
-                         :vendor => 'ALT Linux' }
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
     if @srpm == nil
       render :action => "nosuchpackage"
     end
   end
 
   def download
-    #@branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch => params[:branch],
-                         :vendor => 'ALT Linux' }
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
     if @srpm != nil
       @allsrpms = Srpm.find_by_sql ["SELECT srpms.name, srpms.version,
                                             srpms.release, srpms.branch,
@@ -99,11 +87,7 @@ class SrpmController < ApplicationController
   end
 
   def gear
-    #@branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch => params[:branch],
-                         :vendor => 'ALT Linux' }
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
     if @srpm != nil
       @gears = Gear.all :conditions => { :package => @srpm.name },
                           :order => 'lastchange DESC'
@@ -113,7 +97,7 @@ class SrpmController < ApplicationController
   end
 
   def bugs
-    #@branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
                       :product => params[:branch],
@@ -123,10 +107,13 @@ class SrpmController < ApplicationController
                          :component => params[:name],
                          :product => params[:branch] },
                       :order => "bug_id DESC"
+    if @srpm == nil
+      render :action => "nosuchpackage"
+    end
   end
 
   def allbugs
-    #@branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
     @bugs = Bug.all :conditions => {
                       :component => params[:name],
                       :product => params[:branch],
@@ -136,14 +123,13 @@ class SrpmController < ApplicationController
                          :component => params[:name],
                          :product => params[:branch] },
                        :order => "bug_id DESC"
+    if @srpm == nil
+      render :action => "nosuchpackage"
+    end
   end
 
   def repocop
-    #@branch = Branch.first :conditions => { :vendor => 'ALT Linux', :name => params[:branch] }
-    @srpm = Srpm.first :conditions => {
-                         :name => params[:name],
-                         :branch => params[:branch],
-                         :vendor => 'ALT Linux' }
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
     if @srpm != nil
       @repocops = Repocop.all :conditions => {
                                 :srcname => @srpm.name,
