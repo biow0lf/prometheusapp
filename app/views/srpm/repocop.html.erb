@@ -1,23 +1,23 @@
 <% title ("Prometheus 2.0 - Package ") + @srpm.name + (" - Repocop") -%>
-<% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) + "/repocop" -%>
+<% url "/srpm/" + @srpm.branch + '/' + @srpm.name + "/repocop" -%>
 
-<div style="height:3em;"> 
+<div style="height:3em;">
     <div id="rpmtop">
-        <b style="font-size:9pt;"><%=h ("Group") %> :: <%=h @srpm.group %></b><br />
-        <div class="header" style="letter-spacing:1px;"><%=h ("Source RPM:") %> <%=h @srpm.name %></div>
+        <b style="font-size:9pt;"><%= ("Group") %> :: <%= @srpm.group %></b><br />
+        <div class="header" style="letter-spacing:1px;"><%= ("Source RPM:") %> <%= @srpm.name %></div>
     </div>
 </div>
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%=h ("information about SRPM") %>"><%=h ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h ("full changelog") %>"><%=h ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h ("spec") %>"><%=h ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h ("download latest version") %>"><%=h ("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h ("this package in gear repositories") %>"><%=h ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h ("list of bugs and feature requests") %>"><%=h ("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%=h ("Repocop") %></b>&nbsp;</span><p class="news" /><br />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>" class="news" title="<%= ("information about SRPM") %>"><%= ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/changelog" class="news" title="<%= ("full changelog") %>"><%= ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= ("spec") %>"><%= ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/get" class="news" title="<%= ("download latest version") %>"><%= ("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/gear" class="news" title="<%= ("this package in gear repositories") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= ("list of bugs and feature requests") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%= ("Repocop") %></b>&nbsp;</span><p class="news" /><br />
 
 </div>
-<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+<table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th class="sort"><%= ("package id") %></th>
-    <th id="repocop" class="sort"><%= ("status") %></th>
-    <th class="sort"><%= ("test") %></th>
-    <th class="sort"><%= ("message") %></th>
+    <th><%= ("package id") %></th>
+    <th><%= ("status") %></th>
+    <th><%= ("test") %></th>
+    <th><%= ("message") %></th>
   </tr>
 
 <% @srpm.repocops.each do |repocop| -%>
