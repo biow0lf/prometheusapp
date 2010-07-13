@@ -4,6 +4,8 @@ class Maintainer < ActiveRecord::Base
 
   validate :uniqueness_of_email_login_and_team
 
+  has_many :sisyphus, :class_name => 'Acl', :foreign_key => 'login', :primary_key => 'login', :conditions => { :branch => 'Sisyphus', :vendor => 'ALT Linux' }
+
   def uniqueness_of_email_login_and_team
     errors.add(:uniq, "should be uniq") if Maintainer.count(:all, :conditions => {
                                                                     :email => email,
@@ -60,6 +62,34 @@ class Maintainer < ActiveRecord::Base
         puts "Bad src.rpm -- " + file
       end
     end
+  end
+
+  # TODO: write tests for this
+  def self.find_all_maintainers_in_sisyphus
+    find_by_sql("SELECT COUNT(acls.package) AS counter,
+                        maintainers.name AS name,
+                        maintainers.login AS login
+                 FROM acls, maintainers
+                 WHERE maintainers.login = acls.login
+                 AND maintainers.team = 'no'
+                 AND acls.branch = 'Sisyphus'
+                 AND acls.vendor = 'ALT Linux'
+                 GROUP BY maintainers.name, maintainers.login
+                 ORDER BY maintainers.name ASC")
+  end
+
+  # TODO: write tests for this
+  def self.find_all_teams_in_sisyphus
+    find_by_sql("SELECT COUNT(acls.package) AS counter,
+                        maintainers.name AS name,
+                        maintainers.login AS login
+                 FROM acls, maintainers
+                 WHERE maintainers.login = acls.login
+                 AND maintainers.team = 'yes'
+                 AND acls.branch = 'Sisyphus'
+                 AND acls.vendor = 'ALT Linux'
+                 GROUP BY maintainers.name, maintainers.login
+                 ORDER BY maintainers.name ASC")
   end
 
 end

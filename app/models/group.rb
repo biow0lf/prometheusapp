@@ -20,8 +20,8 @@ class Group < ActiveRecord::Base
                  AND srpms.vendor = 'ALT Linux'
                  AND groups.branch = srpms.branch
                  AND groups.vendor = srpms.vendor
-                 AND srpms.`group` = groups.name
-                 GROUP BY groups.id
+                 AND srpms.\"group\" = groups.name
+                 GROUP BY groups.name
                  ORDER BY groups.name ASC")
   end
 

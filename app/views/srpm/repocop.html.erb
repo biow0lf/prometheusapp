@@ -1,0 +1,36 @@
+<% title ("Prometheus 2.0 - Package ") + @srpm.name + (" - Repocop") -%>
+<% url "/srpm/" + h(@srpm.branch) + '/' + h(@srpm.name) + "/repocop" -%>
+
+<div style="height:3em;"> 
+    <div id="rpmtop">
+        <b style="font-size:9pt;"><%=h ("Group") %> :: <%=h @srpm.group %></b><br />
+        <div class="header" style="letter-spacing:1px;"><%=h ("Source RPM:") %> <%=h @srpm.name %></div>
+    </div>
+</div>
+<div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>" class="news" title="<%=h ("information about SRPM") %>"><%=h ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/changelog" class="news" title="<%=h ("full changelog") %>"><%=h ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/spec" class="news" title="<%=h ("spec") %>"><%=h ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/get" class="news" title="<%=h ("download latest version") %>"><%=h ("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/gear" class="news" title="<%=h ("this package in gear repositories") %>"><%=h ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/srpm/<%=h @srpm.branch %>/<%=h @srpm.name %>/bugs" class="news" title="<%=h ("list of bugs and feature requests") %>"><%=h ("Bugs and FR") %></a>&nbsp;</span><span class="current">&nbsp;<b><%=h ("Repocop") %></b>&nbsp;</span><p class="news" /><br />
+
+</div>
+<table id="bugs" cellspacing="0" cellpadding="3" class="sortable">
+  <tr>
+    <th class="sort"><%= ("package id") %></th>
+    <th id="repocop" class="sort"><%= ("status") %></th>
+    <th class="sort"><%= ("test") %></th>
+    <th class="sort"><%= ("message") %></th>
+  </tr>
+
+<% @srpm.repocops.each do |repocop| -%>
+  <% if repocop.status != 'skip' -%>
+  <tr>
+    <td><%= repocop.name %>-<%= repocop.version %>-<%= repocop.release %>.<%= repocop.arch %></td>
+    <td><%= image_tag(repocop.status + '.png', :size => "20x20") %><br/><%= repocop.status %></td>
+    <td><%= repocop.testname %></td>
+    <td style="text-align:left">
+      <% if repocop.message != '' %><%= repocop.message %><% else %>&nbsp;<% end %>
+    </td>
+  </tr>
+  <% end -%>
+<% end -%>
+
+</table>

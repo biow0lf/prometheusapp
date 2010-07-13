@@ -1,5 +1,5 @@
 class Mylock
-  @pid_filename = "#{RAILS_ROOT}/tmp/prometheusapp_cron.pid"
+  @pid_filename = "#{Rails.root}/tmp/prometheusapp_cron.pid"
 
   def self.lock(task)
     if File.exists?(@pid_filename) && system("kill -0 #{File.read(@pid_filename).to_i}")

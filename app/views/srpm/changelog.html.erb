@@ -1,0 +1,30 @@
+<% title ("Prometheus 2.0 - Package ") + @srpm.name + (" - Changelog") -%>
+<% url "/srpm/" + h(@srpm.branch) + '/' + @srpm.name + "/changelog" -%>
+
+<div style="height:3em;">
+    <div id="rpmtop">
+        <b style="font-size:9pt;"><%= ("Group") %> :: <%= @srpm.group %></b><br />
+        <div class="header" style="letter-spacing:1px;"><%= ("Source RPM:") %> <%= @srpm.name %></div>
+    </div>
+</div>
+<div>
+<p class="break" />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>" class="news" title="<%= ("information about SRPM") %>"><%= ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Changelog") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= ("spec") %>"><%= ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/get" class="news" title="<%= ("download latest version") %>"><%= ("Download") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/gear" class="news" title="<%= ("this package in gear repositories") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= ("list of bugs and feature requests") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><p class="news" />
+
+<%# if @srpm.changelog != nil %>
+<%#= simple_format h(@srpm.changelog.force_encoding('utf-8')).gsub('@altlinux', ' at altlinux').gsub('@', ' at ') %>
+<%# else %>
+<!-- Changelog not avail. Try again later. -->
+TODO
+<%# end %>
+
+<!--
+<#% @changelogs.each do |changelog| %#>
+  <div id="changelog"><b>* <#%=h changelog.changelogtime %#> <#%=h changelog.changelogname %#></b><br />
+    <#%=h changelog.changelogtext %#>
+  </div>
+  <br />
+<#% end %#>
+-->
+
+<%= render :partial => 'shared/fix' %>
