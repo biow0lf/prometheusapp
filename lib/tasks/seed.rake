@@ -41,39 +41,46 @@ task :seed => :environment do
   branch.order_id = 0
   branch.save!
 
+  # add SisyphusARM branch
+  branch = Branch.new
+  branch.distribution = 'SisyphusARM'
+  branch.vendor = 'ALT Linux'
+  branch.order_id = 1
+  branch.save!
+
   # add Platform5 branch
   branch = Branch.new
   branch.distribution = 'Platform5'
   branch.vendor = 'ALT Linux'
-  branch.order_id = 1
+  branch.order_id = 2
   branch.save!
 
   # add 5.1 branch
   branch = Branch.new
   branch.distribution = '5.1'
   branch.vendor = 'ALT Linux'
-  branch.order_id = 2
+  branch.order_id = 3
   branch.save!
 
   # add 5.0 branch
   branch = Branch.new
   branch.distribution = '5.0'
   branch.vendor = 'ALT Linux'
-  branch.order_id = 3
+  branch.order_id = 4
   branch.save!
 
   # add 4.1 branch
   branch = Branch.new
   branch.distribution = '4.1'
   branch.vendor = 'ALT Linux'
-  branch.order_id = 4
+  branch.order_id = 5
   branch.save!
 
   # add 4.0 branch
   branch = Branch.new
   branch.distribution = '4.0'
   branch.vendor = 'ALT Linux'
-  branch.order_id = 5
+  branch.order_id = 6
   branch.save!
 
   puts Time.now.to_s + ": end"
