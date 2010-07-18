@@ -1,6 +1,8 @@
 SUPPORTED_LOCALES = /(en|ru|uk|br)/
 
 Prometheusapp::Application.routes.draw do |map|
+  get "search/index"
+
   get "srpm/main"
 
   get "team/info"
@@ -55,10 +57,12 @@ Prometheusapp::Application.routes.draw do |map|
   match '(/:locale)/packager/:login/srpms?sort=status&order=asc', :to => 'packager#srpms', :constraints => { :locale => SUPPORTED_LOCALES }
   # legacy end
 
-  match '(/:locale)/search', :to => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
-  match '(/:locale)/find.shtml', :to => 'home#search', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/search', :to => 'search#index', :constraints => { :locale => SUPPORTED_LOCALES }
+  match '(/:locale)/find.shtml', :to => 'search#index', :constraints => { :locale => SUPPORTED_LOCALES }
 
-  # /api/v1/
+  # /api begin
+  match '/api/v1/count/:vendor/:branch', :to => 'api#count'
+  # /api end
 
   match '(/:locale)', :to => 'home#index', :constraints => { :locale => SUPPORTED_LOCALES }
 
