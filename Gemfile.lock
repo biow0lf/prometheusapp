@@ -81,3 +81,4 @@ DEPENDENCIES
   shoulda
   sqlite3-ruby
   tolk
+  will_paginate (= 3.0.pre)
