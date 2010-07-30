@@ -1,0 +1,12 @@
+<% @maintainer.sisyphus.each do |acl| -%>
+<% acl.srpm.repocops.each do |repocop| %>
+<% if repocop.status != 'skip' and repocop.status != 'ok' -%>
+-------------------------------------------------------------------------------
+<%= repocop.name %>-<%= repocop.version %>-<%= repocop.release %>.<%= repocop.arch %>
+<%= repocop.status %>
+<%= repocop.testname %>
+<%= repocop.message %>
+-------------------------------------------------------------------------------
+<% end %>
+<% end %>
+<% end -%>
