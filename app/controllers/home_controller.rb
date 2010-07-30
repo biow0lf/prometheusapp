@@ -12,7 +12,7 @@ class HomeController < ApplicationController
     @group = @group + '/' + params[:group2] if !params[:group2].nil?
     @group = @group + '/' + params[:group3] if !params[:group3].nil?
 
-    @srpms = Srpm.where(:group => @group, :branch => 'Sisyphus', :vendor => 'ALT Linux')
+    @srpms = Srpm.where(:group => @group, :branch => 'Sisyphus', :vendor => 'ALT Linux').paginate(:page => params[:page], :per_page => 100)
   end
 
   def packagers_list
