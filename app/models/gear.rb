@@ -2,6 +2,8 @@ class Gear < ActiveRecord::Base
   validates_presence_of :package, :login, :lastchange
   validate :uniqueness_of_package_and_login
 
+  default_scope order('LOWER(package)')
+
   def uniqueness_of_package_and_login
     errors.add(:uniq, "should be uniq") if Gear.count(:all, :conditions => {
                                                               :package => package,
