@@ -1,12 +1,12 @@
-<% title ("Prometheus 2.0 - Package ") + @srpm.name + (" - Download") -%>
+<% title _("PrometheusApp - Package ") + @srpm.name + _(" - Download") -%>
 <% url "/srpm/" + @srpm.branch + '/' + @srpm.name + "/get" -%>
 
 <div id="rightbar">
 <div class="headleft">
-<div class="headright" title="<%= ("ALT Linux repositories") %>">
-  <%= ("ALT Linux repos") %>
+<div class="headright" title="<%= _("ALT Linux repositories") %>">
+  <%= _("ALT Linux repos") %>
 </div>
-<img id="topRPM" src="/images/collapse.gif" class="close" title="<%= ("hide window") %>" alt="<%= ("hide window") %>" />
+<img id="topRPM" src="/images/collapse.gif" class="close" title="<%= _("hide window") %>" alt="<%= _("hide window") %>" />
 </div>
 <div id="topRPMDiv" style="border: dotted gray 1px;margin: 0px 4px 4px 4px;">
 <table style="font-size:8pt;" width="100%">
@@ -26,14 +26,14 @@
 
 <div style="height:3em;">
   <div id="rpmtop">
-    <b style="font-size:9pt;"><%= ("Group") %> :: <%= @srpm.group %></b><br />
-    <div class="header" style="letter-spacing:1px;"><%= ("Source RPM:") %> <%= @srpm.name %></div>
+    <b style="font-size:9pt;"><%= _("Group") %> :: <%= @srpm.group %></b><br />
+    <div class="header" style="letter-spacing:1px;"><%= _("Source RPM:") %> <%= @srpm.name %></div>
   </div>
 </div>
 
 <div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>" class="news" title="<%= ("information about SRPM") %>"><%= ("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/changelog" class="news" title="<%= ("full changelog") %>"><%= ("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= ("spec") %>"><%= ("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Download") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/gear" class="news" title="<%= ("this package in gear repositories") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= ("list of bugs and feature requests") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span>
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>" class="news" title="<%= _("information about SRPM") %>"><%= _("Main") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/changelog" class="news" title="<%= _("full changelog") %>"><%= _("Changelog") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/spec" class="news" title="<%= _("spec") %>"><%= _("Spec") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Download") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/gear" class="news" title="<%= _("this package in gear repositories") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/bugs" class="news" title="<%= _("list of bugs and feature requests") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/srpm/<%= @srpm.branch %>/<%= @srpm.name %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span>
 
 <script type="text/javascript">
 <!--
@@ -44,7 +44,7 @@ function changeHref (val){
 
   <% if @i586.count != 0 -%>
     <% @i586.each do |i| -%>
-      url<%=h counter %> = "<%= '/Sisyphus/files/i586/RPMS/' + i.filename %>";
+      url<%= counter %> = "<%= '/Sisyphus/files/i586/RPMS/' + i.filename %>";
       <% counter += 1 -%>
 	<% end -%>
   <% end -%>
@@ -84,7 +84,7 @@ function changeHref (val){
 </script>
 <p />
 
-&nbsp;<b><%= ("Choose a mirror:") %></b>
+&nbsp;<b><%= _("Choose a mirror:") %></b>
 <select name="mirror" onchange="changeHref(this.value)" class="top-name" style="margin-left:1em;">
   <option value="0" selected="selected">ftp.altlinux.org</option>
   <option value="1">ftp.anyhost.ru</option>
