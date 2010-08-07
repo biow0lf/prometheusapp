@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_gettext_locale
+  before_filter :fix_params_locale
+
+  def fix_params_locale
+    params[:locale] ||= 'en'
+  end
+
 #  layout 'application'
 #  before_filter :set_locale
 #
