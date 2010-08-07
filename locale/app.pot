@@ -1,0 +1,165 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: version 0.0.1\n"
+"POT-Creation-Date: 2010-08-07 17:20+0300\n"
+"PO-Revision-Date: 2010-08-07 17:20+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: app/views/layouts/application.html.erb:4
+msgid "PrometheusApp"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:69
+msgid "Sisyphus repository "
+msgstr ""
+
+#: app/views/layouts/application.html.erb:80
+msgid "find"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:91
+msgid "Last update:"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:91
+msgid "SRPMs:"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "en"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "English"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "ru"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "Russian"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "uk"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "Ukrainian"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:94
+msgid "Portuguese (Brasilian)"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:102
+msgid "Home"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:102
+msgid "site home page"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:107
+msgid "News"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:107
+msgid "site news"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:112
+msgid "Packages"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:112
+msgid "packages information"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:117
+msgid "Maintainers"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:117
+msgid "maintainers information"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:122
+msgid "Security"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:122
+msgid "security fixes"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:127
+msgid "About"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:127
+msgid "about Prometeus project"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:132
+msgid "RSS"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:137
+msgid "Wiki"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:137
+msgid "http://en.altlinux.org/Sisyphus"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:137
+msgid "sisyphus public site"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:143
+msgid "Blog"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:143
+msgid "http://www.livejournal.com/userinfo.bml?user=ru_sisyphus"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:143
+msgid "blog"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:148
+msgid "Planet"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:148
+msgid "http://planet.altlinux.org/"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:148
+msgid "ALT Linux Planet"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:154
+msgid "Mailing list"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:154
+msgid "http://lists.altlinux.org/mailman/listinfo/community-en/"
+msgstr ""
+
+#: app/views/layouts/application.html.erb:154
+msgid "community-en@"
+msgstr ""
