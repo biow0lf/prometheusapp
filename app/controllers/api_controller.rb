@@ -52,6 +52,10 @@ class ApiController < ApplicationController
                                      :team => 'no' }
   end
 
+  def srpm_info
+    @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
+  end
+
   def srpm_get
     @srpm = Srpm.where(:name => params[:name], :branch => params[:branch], :vendor => 'ALT Linux').first
     if @srpm != nil
