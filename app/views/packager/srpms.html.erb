@@ -1,20 +1,20 @@
-<% title ("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + ("&raquo; - Packages") -%>
+<% title _("PrometheusApp - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Packages") -%>
 <% url "/packager/" + @maintainer.login + "/srpms" -%>
 
-<div class="header"><%= ("Maintainer:") %> <%= @maintainer.name %></div>
+<div class="header"><%= _("Maintainer:") %> <%= @maintainer.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= ("information about maintainer") %>"><%= ("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= ("gear") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/bugs" class="news" title="<%= ("Bugs/FR statistics assigned to this maintainer") %>"><%= ("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><p class="break" />
-<b><%= ("List of packages which was built by this maintainer:") %></b> [<%= @maintainer.sisyphus.count %>] <br /><br />
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= _("information about maintainer") %>"><%= _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Packages") %></b>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= _("gear") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/bugs" class="news" title="<%= _("Bugs/FR statistics assigned to this maintainer") %>"><%= _("Bugs and FR") %></a>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="break" />
+<b><%= _("List of packages which was built by this maintainer:") %></b> [<%= @maintainer.sisyphus.count %>] <br /><br />
 
 <table id="bugs" cellspacing="0" cellpadding="3">
   <tr>
-    <th><%= ("repo<br/>cop") %></th>
-    <th><%= ("package") %></th>
-    <th><%= ("current<br />version") %></th>
-    <th><%= ("build time") %></th>
-    <th><%= ("age") %></th>
-    <th><%= ("Url") %></th>
-    <th><%= ("Summary") %></th>
+    <th><%= _("repo<br/>cop") %></th>
+    <th><%= _("package") %></th>
+    <th><%= _("current<br />version") %></th>
+    <th><%= _("build time") %></th>
+    <th><%= _("age") %></th>
+    <th><%= _("Url") %></th>
+    <th><%= _("Summary") %></th>
   </tr>
 
   <% @maintainer.sisyphus.each do |acl| -%>
@@ -28,7 +28,7 @@
     </td>
     <td><%= acl.srpm.version %>-<%= acl.srpm.release %></td>
     <td><%= acl.srpm.buildtime %></td>
-    <td><%= time_ago_in_words(acl.srpm.buildtime) %> <%= ("ago") %></td>
+    <td><%= time_ago_in_words(acl.srpm.buildtime) %> <%= _("ago") %></td>
     <td>
       <% if acl.srpm.url != nil %><%= link_to acl.srpm.url[0..27] + '...', acl.srpm.url, :class => 'news' %><% else %>-<% end %>
     </td>

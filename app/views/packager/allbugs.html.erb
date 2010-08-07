@@ -1,26 +1,26 @@
-<% title ("Prometheus 2.0 - Maintainer &laquo;") + @maintainer.name + ("&raquo; - Bugs and FR (All)") -%>
+<% title _("PrometheusApp - Maintainer &laquo;") + @maintainer.name + _("&raquo; - Bugs and FR (All)") -%>
 <% url "/packager/" + @maintainer.login + "/allbugs" -%>
 
-<div class="header"><%= ("Maintainer:") %> <%= @maintainer.name %></div>
+<div class="header"><%= _("Maintainer:") %> <%= @maintainer.name %></div>
 <p class="break" />
-<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= ("information about maintainer") %>"><%= ("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/srpms" class="news" title="<%= ("packages which was built by this maintainer") %>"><%= ("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= ("gear") %>"><%= ("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= ("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= ("repocop bugreports") %>"><%= ("Repocop") %></a>&nbsp;</span><p class="news" /><br />
-<b><%= ("Total records:") %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
+<span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>" class="news" title="<%= _("information about maintainer") %>"><%= _("Information") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/srpms" class="news" title="<%= _("packages which was built by this maintainer") %>"><%= _("Packages") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/gear" class="news" title="<%= _("gear") %>"><%= _("Gear") %></a>&nbsp;</span><span class="underl">&nbsp;</span><span class="current">&nbsp;<b><%= _("Bugs and FR") %></b>&nbsp;</span><span class="vkladka">&nbsp;<a href="/<%= params[:locale] %>/packager/<%= @maintainer.login %>/repocop" class="news" title="<%= _("repocop bugreports") %>"><%= _("Repocop") %></a>&nbsp;</span><p class="news" /><br />
+<b><%= _("Total records:") %></b> <%= @allbugs.count %> (<span style='color:red'><%= @bugs.count %></span>|<%= @allbugs.count - @bugs.count %>)
 
 <div style="text-align:left;margin-left:2em;margin-top:1.5em;">
-<span class="tabunsel">&nbsp;<%= link_to ("open"), '/' + params[:locale] + '/packager/' + @maintainer.login + '/bugs', :class => 'news' %>&nbsp;</span>
-<span class="tabsel">&nbsp;<%= ("total") %>&nbsp;</span>
+<span class="tabunsel">&nbsp;<%= link_to _("open"), '/' + params[:locale] + '/packager/' + @maintainer.login + '/bugs', :class => 'news' %>&nbsp;</span>
+<span class="tabsel">&nbsp;<%= _("total") %>&nbsp;</span>
 </div>
 
 <table id="bugs" cellspacing="0" cellpadding="3" class="tablesorter">
   <thead>
     <tr>
-      <th><%= ("id") %></th>
-      <th><%= ("package") %></th>
-      <th><%= ("severity") %></th>
-      <th><%= ("status") %></th>
-      <th><%= ("resolution") %></th>
-      <th><%= ("reporter") %></th>
-      <th><%= ("summary") %></th>
+      <th><%= _("id") %></th>
+      <th><%= _("package") %></th>
+      <th><%= _("severity") %></th>
+      <th><%= _("status") %></th>
+      <th><%= _("resolution") %></th>
+      <th><%= _("reporter") %></th>
+      <th><%= _("summary") %></th>
     </tr>
   </thead>
   <tbody>
