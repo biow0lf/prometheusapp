@@ -12,6 +12,7 @@ Prometheusapp::Application.routes.draw do |map|
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  match '(/:locale)/api', :to => 'pages#api', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/project', :to => 'pages#project', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/rss', :to => 'pages#rss', :constraints => { :locale => SUPPORTED_LOCALES }
   match '(/:locale)/news', :to => 'pages#news', :constraints => { :locale => SUPPORTED_LOCALES }
@@ -62,6 +63,23 @@ Prometheusapp::Application.routes.draw do |map|
 
   # /api begin
   match '/api/v1/count/:vendor/:branch', :to => 'api#count'
+
+  match '/api/v1/maintainers', :to => 'api#maintainers'
+  match '/api/v1/maintainer/:login', :to => 'api#maintainer_name' # -- вернёт Full Name маинтейнера
+  match '/api/v1/maintainer/:login/acl', :to => 'api#maintainer_acl' # -- вернёт список acl для маинтейнера Сизифе
+  match '/api/v1/maintainer/:login/gear', :to => 'api#maintainer_gear' # -- вернёт список gear репозиторией маинтейнера
+  match '/api/v1/maintainer/:login/bugs', :to => 'api#maintainer_bugs' # -- вернёт список номеров не закрытых багов на маинтейнере
+  match '/api/v1/maintainer/:login/allbugs', :to => 'api#maintainer_allbugs' # -- вернёт список номеров всех багов на маинтейнере
+  match '/api/v1/maintainer/:login/repocop', :to => 'api#maintainer_repocop' # -- отчёты repocop для всех пакетов маинтейнера
+
+  match '/api/v1/srpm/:branch/:name', :to => 'api#srpm_info' # -- информация о пакете :name из бранча :branch
+  match '/api/v1/srpm/:branch/:name/changelog', :to => 'api#srpm_changelog' # -- changelog пакета
+  match '/api/v1/srpm/:branch/:name/spec', :to => 'api#srpm_spec' # -- spec пакета
+  match '/api/v1/srpm/:branch/:name/get', :to => 'api#srpm_get' # -- список из src.rpm и бинарных пакетов собранных их этого src.rpm пакета
+  match '/api/v1/srpm/:branch/:name/gear', :to => 'api#srpm_gear' # -- список из маинтейнеров у которых в gear есть пакет :name
+  match '/api/v1/srpm/:branch/:name/bugs', :to => 'api#srpm_bugs' # -- номера открытых багов на пакет :name
+  match '/api/v1/srpm/:branch/:name/allbugs', :to => 'api#srpm_allbugs' # -- номера всех багов на пакет :name
+  match '/api/v1/srpm/:branch/:name/repocop', :to => 'api#srpm_repocop' # -- отчёты repocop на пакет :name
   # /api end
 
   match '(/:locale)', :to => 'home#index', :constraints => { :locale => SUPPORTED_LOCALES }
